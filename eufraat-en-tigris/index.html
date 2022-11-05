@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Eufraat en Tigris</title>
+    <style media="screen">
+      body {
+        width: 100vw;
+        /* height: 100vh; */
+        margin: 0;
+        /* padding: 2%; */
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        box-sizing: border-box;
+        flex-direction: column;
+      }
+
+      #dis {
+        flex: 1;
+        max-height: 100%;
+        aspect-ratio: 1411/1020;
+        background-image: url('background.jpg');
+        background-size: cover;
+        padding: 7.3% 8%;
+        box-sizing: border-box;
+      }
+
+      #board {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+        border: 1px solid black;
+      }
+
+      #board > div {
+        border: 2px solid black;
+        aspect-ratio: 1/1;
+        /* opacity: 0.5; */
+      }
+
+      /* table,
+      th,
+      td {
+        border: 3px solid black;
+        border-collapse: collapse;
+      }
+
+      td {
+        aspect-ratio: 1/1;
+      } */
+
+      .red {
+        background: rgba(255, 0, 0, 0.5);
+      }
+
+      .yellow {
+        background: rgba(255, 255, 0, 0.5);
+      }
+
+      .blue {
+        background: rgba(0, 0, 255, 0.5);
+      }
+
+      .green {
+        background: rgba(0, 128, 0, 0.5);
+      }
+
+      .orange {
+        background: rgba(255, 165, 0, 0.5);
+      }
+
+      .purple {
+        background: rgba(128, 0, 128, 0.5);
+      }
+
+      .silver {
+        background: rgba(192, 192, 192, 0.5);
+      }
+
+      .aqua {
+        background: rgba(0, 255, 255, 0.5);
+      }
+
+      .chartreuse {
+        background: rgba(127, 255, 0, 0.5);
+      }
+
+      .black {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .capital {
+        border-width: 6px !important;
+        margin: -6px;
+      }
+
+      .buttons {
+        display: flex;
+        height: 10vh;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      #pause {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body onload="reset()">
+    <div id="dis">
+      <div id="board">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="start" type="button" name="start" onclick="start()">Start</button>
+      <button id="pause" type="button" name="pause" onclick="pause()">Pause</button>
+      <button type="button" name="reset" onclick="reset()">Reset</button>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const tds = document.getElementById('board').children;
+    const startButton = document.getElementById('start');
+    const pauseButton = document.getElementById('pause');
+
+    const colors = [];
+
+    const countries = new Map([]);
+
+    const hasClass = (element, className) => {
+      if (element == undefined) return false;
+      return element.classList.contains(className);
+    }
+
+    const isNextToColor = (color, i) => i % 16 !== 0 && hasClass(tds[i - 1], color) || i % 16 !== 15 && hasClass(tds[i + 1], color) || hasClass(tds[i - 16], color) || hasClass(tds[i + 16], color);
+
+    const getTargets = (color) => {
+      let targets = [];
+      for (let i = 0; i < tds.length; i++) {
+        if (hasClass(tds[i], color)) continue;
+        if (isNextToColor(color, i)) {
+          targets.push(i);
+        }
+      }
+      return targets;
+    }
+
+    const rand = (array) => array[Math.random() * array.length | 0];
+
+    const getStrength = (color) => countries.get(color).length;
+
+    const playRound = () => {
+      if (colors.length < 2 && countries.get(colors[0]).length > 175) return;
+      let color = rand(colors);
+      let target = rand(getTargets(color));
+      if (hasClass(tds[target], 'none')) {
+        countries.get(color).push(target);
+        return tds[target].className = color;
+      }
+      let enemy = tds[target].classList[0];
+      let enemyStrength = getStrength(enemy);
+      let strength = getStrength(color);
+      if (strength / (strength + enemyStrength) > Math.random()) return;
+      if (hasClass(tds[target], 'capital')) {
+        colors.splice(colors.indexOf(enemy), 1);
+        let destroyed = countries.get(enemy);
+        for (let i = 0; i < destroyed.length; i++) {
+          tds[destroyed[i]].className = 'none';
+        }
+        countries.delete(enemy);
+      } else {
+        checkCountry(enemy, target);
+      }
+      tds[target].className = color;
+      countries.get(color).push(target);
+      // countries.get(enemy).splice(countries.get(enemy).indexOf(target), 1);
+    }
+
+    const checkCountry = (color, target) => {
+      if (colors.indexOf(color) < 0) return;
+      let country = countries.get(color);
+      country.splice(country.indexOf(target), 1);
+      let toBeChecked = [...country];
+      let capital = toBeChecked.shift();
+      let passed = [capital];
+      let failed = [];
+      let remaining = toBeChecked.length;
+      let finished = false;
+      while (!finished) {
+        while (toBeChecked.length > 0) {
+          let tile = toBeChecked.shift();
+          if (isNextToOne(tile, passed)) {
+            passed.push(tile);
+          } else {
+            failed.push(tile);
+          }
+        }
+        if (failed.length < 1 || failed.length === remaining) {
+          finished = true;
+        } else {
+          toBeChecked = [...failed];
+          failed = [];
+          remaining = toBeChecked.length;
+        }
+      }
+      for (let i = 0; i < failed.length; i++) {
+        tds[failed[i]].className = 'none';
+        country.splice(country.indexOf(failed[i]), 1);
+      }
+    }
+
+    const isNextToOne = (tile, array) => {
+      for (let i = 0; i < array.length; i++) {
+        if (isNextTo(array[i], tile)) return true;
+      }
+      return false;
+    }
+
+    const isNextTo = (tile1, tile2) => tile1 % 16 !== 0 && tile1 - 1 === tile2 || tile1 % 16 !== 15 && tile1 + 1 === tile2 || tile1 - 16 === tile2 || tile1 + 16 === tile2;
+
+    let interval;
+
+    const start = () => {
+      startButton.style.display = 'none';
+      pauseButton.style.display = 'block';
+      interval = setInterval(playRound, 30);
+    }
+
+    const pause = () => {
+      startButton.style.display = 'block';
+      pauseButton.style.display = 'none';
+      clearInterval(interval);
+    }
+
+    const reset = () => {
+      startButton.style.display = 'block';
+      pauseButton.style.display = 'none';
+      if (interval) clearInterval(interval);
+      colors.splice(0, colors.length);
+      colors.push('red', 'yellow', 'blue', 'green', 'orange', 'purple', 'silver', 'aqua', 'chartreuse', 'black');
+      countries.clear();
+      countries.set('red', [170])
+      .set('yellow', [17])
+      .set('blue', [31])
+      .set('green', [113])
+      .set('orange', [10])
+      .set('purple', [37])
+      .set('silver', [104])
+      .set('aqua', [77])
+      .set('chartreuse', [142])
+      .set('black', [149]);
+      for (let i = 0; i < tds.length; i++) {
+        tds[i].className = 'none';
+      }
+      countries.forEach((item, i) => {
+        tds[item[0]].className = i + " capital";
+      });
+
+    }
+  </script>
+
+</html>
