@@ -1,125 +1,156 @@
 export const uitnodiging = {
   sabbat: `<p>
+  <b>Ant.</b>
   Het volk van God staat nog een sabbatsrust te wachten. <b>*</b> En wie Gods rust mag binnengaan rust uit van al zijn werk, zoals God uitrust van het zijne. Laten we ons dus inspannen die rust binnen te gaan. 
 </p>`,
 
   nieuweMaan: `<p>
+  <b>Ant.</b>
   De engel toonde mij de rivier met het water des levens, <b>*</b> helder als kristal, die ontwelde aan de troon van God en van het Lam. Zij liep midden door de straat van de stad, en op haar oevers, aan weerszijden, stond het geboomte des levens, dat twaalfmaal vrucht draagt, elke maand eens; en zijn loof brengt de volken genezing. 
 </p>`,
 
   vasten: `<p>
+  <b>Ant.</b>
   Zolang zij de bruidegom in hun midden hebben, kunnen de vrienden van de bruidegom niet vasten. <b>*</b> Er zullen echter dagen komen, dat de bruidegom van hen is weggenomen; en dan, in die tijd, zullen ze vasten. 
 </p>`,
 
   gedachtenis: `<p>
+  <b>Ant.</b>
   Het teken van de Mensenzoon zal aan de hemel verschijnen; <b>*</b> alle stammen der aarde zullen weeklagen, zij zullen de Mensenzoon op de hemelwolken zien komen met macht en grote heerlijkheid. Hij zal zijn engelen uitzenden met luid trompetgeschal om zijn uitverkorenen te verzamelen uit de vier windstreken, van het ene uiteinde van de hemel tot het andere. Wanneer zich dit alles begint te voltrekken, richt u dan op en heft uw hoofden omhoog, want uw verlossing komt naderbij. 
 </p>`,
 
   inkeer: `<p>
+  <b>Ant.</b>
   Zorgt ervoor, broeders, <b>*</b> dat onder u niemand zo'n slechte en trouweloze gezindheid heeft, die leidt tot afval van de levende God. Spreekt elkaar moed in, elke dag, zolang dat 'heden' duurt, zodat niemand zich door de zonde tot zulk een halsstarrigheid laat verleiden. 
 </p>`,
 
   verzoendag: `<p>
+  <b>Ant.</b>
   Christus is gekomen, de hogepriester van het waarachtige heil. <b>*</b> De tent van zijn priesterschap is groter en volmaakter dan de vorige; ze is niet gemaakt door mensenhand, dat wil zeggen, ze behoort niet tot onze geschapen wereld. Het bloed van zijn offer is zijn eigen bloed, niet dat van bokken en kalveren. Zo is Hij het heiligdom binnengegaan, eens voor altijd, en Hij heeft een eeuwige verlossing verworven. Door de eeuwige Geest heeft Hij zichzelf aan God geofferd als een smetteloos offer, dat onze ziel zuivert van dode werken om de levende God te eren. 
 </p>`,
 
   vervulling: `<p>
+  <b>Ant.</b>
   Midden in de nacht klonk er geroep: <b>*</b> Daar is de bruidegom! Trekt hem tegemoet! Zalig zijn die genodigd zijn tot het bruiloftsmaal van het Lam. 
 </p>`,
 
   loofhutten: `<p>
+  <b>Ant.</b>
   Zie hier Gods woning onder de mensen! <b>*</b> Hij zal bij hen wonen. Zij zullen zijn volk zijn, en Hij, God-met-hen, zal hun God zijn. En Hij zal alle tranen van hun ogen afwissen, en de dood zal niet meer zijn; geen rouw, geen geween, geen smart zal er zijn, want al het oude is voorbij. 
 </p>`,
 
   hosanna: `<p>
+  <b>Ant.</b>
   Zie, Ik maak alles nieuw. <b>*</b> Het is gebeurd! Ik ben de Alfa en de Omega, de oorsprong en het einde. Wie dorst heeft zal Ik te drinken geven uit de bron van het water des levens, om niet. Wie overwint zal dit alles krijgen, en Ik zal zijn God zijn en hij mijn zoon. 
 </p>`,
 
   verzameldag: `<p>
+  <b>Ant.</b>
   De troon van God en van het Lam zal in de stad staan en zijn dienstknechten zullen Hem vereren. <b>*</b> Zij zullen zijn gelaat aanschouwen en zijn naam zal op hun voorhoofd zijn. Er zal geen nacht meer zijn en zij behoeven geen licht meer van lamp of zon, want God de Heer zal over hen lichten, en zij zullen heersen in de eeuwen der eeuwen. 
 </p>`,
 
   aankondiging: `<p>
+  <b>Ant.</b>
   Ik zal mijn twee getuigen bevelen om te profeteren. <b>*</b> Dit zijn de twee olijfbomen en de twee luchters, die voor de Heer der aarde staan. 
 </p>`,
 
   herinwijding: `<p>
+  <b>Ant.</b>
   Toen ging de tempel van God in de hemel open, <b>*</b> en de ark van zijn verbond werd zichtbaar in zijn tempel, en er dreunden donderslagen, vergezeld van bliksemstralen en aardbeving en zware hagel. En er verscheen een groot teken aan de hemel: een vrouw, bekleed met de zon, de maan onder haar voeten en op haar hoofd een kroon van twaalf sterren. Zij was zwanger en kreet in haar weeën en barensnood. En zij baarde een kind, een zoon, die alle volken zal weiden met een ijzeren staf. 
 </p>`,
 
   onderwijs: `<p>
+  <b>Ant.</b>
   Wij hebben gezien en wij getuigen, <b>*</b> dat de Vader zijn Zoon heeft gezonden om de Heiland van de wereld te zijn. 
 </p>`,
 
   bomen: `<p>
+  <b>Ant.</b>
   Trekt uit de vergelijking met de vijgenboom deze les. <b>*</b> Wanneer zijn twijgen al zacht worden en beginnen uit te botten, weet ge dat de zomer in aantocht is. Zo ook, wanneer ge al deze dingen ziet, weet dan dat het nabij is, ja voor de deur staat. 
 </p>`,
 
   beklimming: `<p>
+  <b>Ant.</b>
   Wie mijn volgeling wil zijn, <b>*</b> moet Mij volgen door zichzelf te verloochenen en elke dag opnieuw zijn kruis op te nemen. 
 </p>`,
 
   ester: `<p>
+  <b>Ant.</b>
   Amalek wilde vechten met de zonen van Jakob, <b>*</b> maar het is zijn eigen herinnering dat is tenietgedaan. Zie, door het vasten van Mordekai en Ester werd Haman van zijn grootheid ten val gebracht, en de overblijfsel van de Amalekieten kwam tot een einde. 
 </p>`,
 
   loten: `<p>
+  <b>Ant.</b>
   Mordekai ontving de eervolle plaats van Haman <b>*</b> en was van hoge rang in het gehele koninkrijk van Ahasveros, en Ester werd koningin in de plaats van Wasti. 
 </p>`,
 
   bruidegom: `<p>
+  <b>Ant.</b>
   Maria nam een pond nardusbalsem, <b>*</b> echte en heel kostbare, zalfde daarmee Jezus’ voeten en droogde ze met haar haren af. Het huis hing vol balsemgeur. 
 </p>`,
 
   eerstgeborenen: `<p>
+  <b>Ant.</b>
   Doet het oude zuurdeeg weg, om vers deeg te worden, <b>*</b> ge moet immers zijn als ongezuurde paasbroden, want ook ons paaslam is geslacht: Christus zelf. 
 </p>`,
 
   eersteSchoof: `<p>
+  <b>Ant.</b>
   Christus is opgestaan uit de doden, als eersteling van hen die ontslapen zijn. <b>*</b> Want omdat door een mens de dood is gekomen, komt door een mens ook de opstanding der doden. Zoals allen sterven in Adam, zo zullen ook allen in Christus herleven. 
 </p>`,
 
   ongezuurden: `<p>
+  <b>Ant.</b>
   Wij moeten ons feest niet vieren met het oude zuurdeeg, <b>*</b> met het bederf van slechtheid en boosheid, maar met het zuivere brood van reinheid en waarheid. 
 </p>`,
 
   oogst: `<p>
+  <b>Ant.</b>
   Wij weten dat Christus, eenmaal van de doden verrezen, niet meer sterft: <b>*</b> de dood heeft geen macht meer over Hem. Door de dood die Hij is gestorven, heeft Hij eens voor al afgerekend met de zonde; het leven dat Hij leeft, heeft alleen met God van doen. Zo moet ook gij uzelf beschouwen: als dood voor de zonde en levend voor God in Christus Jezus. 
 </p>`,
 
   weken: `<p>
+  <b>Ant.</b>
   Gij zijt niet genaderd tot een tastbare berg en een laaiend vuur, <b>*</b> met duisternis, donderwolken en stormwind, waar de trompet klonk en de stem de woorden sprak. Neen, gij zijt genaderd tot de berg Sion en de stad van de levende God, het hemelse Jeruzalem en de duizendtallen engelen, de feestelijke en plechtige vergadering van de eerstgeborenen die in de hemel zijn ingeschreven, tot God, de rechter van allen, en de geesten der rechtvaardigen die de voleinding bereikt hebben, tot Jezus, de middelaar van een nieuw verbond, wiens vergoten bloed iets beters afroept dan het bloed van Abel. 
 </p>`,
 
   bekendmaking: `<p>
+  <b>Ant.</b>
   Gedenkt uw leiders, die u het eerst het woord van God verkondigd hebben. <b>*</b> Haalt u weer hun leven en de afloop van hun leven voor de geest; neemt een voorbeeld aan hun geloof. Jezus Christus is dezelfde gisteren, vandaag en tot in eeuwigheid. 
 </p>`,
 
   droefheid: `<p>
+  <b>Ant.</b>
   Jeruzalem, Jeruzalem, <b>*</b> dat de profeten doodt en stenigt die tot u zijn gezonden! Hoe dikwijls heb Ik uw kinderen willen verzamelen, zoals een kloek haar kuikens verzamelt onder haar vleugels, maar gij hebt niet gewild. Zie, uw huis zal onbewoond achtergelaten worden. 
 </p>`,
 
   rouwdag: `<p>
+  <b>Ant.</b>
   Toen Jezus de stad naderbij kwam, liet Hij zijn blik over de stad gaan en weende over haar, terwijl Hij zei: <b>*</b> Mocht ook gij op deze dag inzien wat u tot vrede strekt! Maar nu is dat voor uw ogen verborgen. Er zullen dagen over u komen, dat uw vijanden een wal tegen u opwerpen, u omsingelen en u van alle kanten insluiten; zij zullen u met uw kinderen die in u wonen, neersmakken en zij zullen in u geen steen op de andere laten, omdat gij de tijd, waarin barmhartig op u werd neergezien, niet hebt erkend. 
 </p>`,
 
   vertroosting: `<p>
+  <b>Ant.</b>
   Ik zeg u: van nu af zult gij Mij niet meer zien, <b>*</b> totdat de tijd komt waarop gij zult zeggen: Gezegend de Komende in de naam van de Heer. 
 </p>`,
 
   wijnoogst: `<p>
+  <b>Ant.</b>
   Alleluja! <b>*</b> De Heer, onze God, de Albeheerser heeft zijn koningschap aanvaard. Laat ons blij zijn en juichen en Hem de eer geven: de tijd is gekomen voor de bruiloft van het Lam en zijn bruid heeft zich al klaargemaakt. 
 </p>`,
 
   bruid: `<p>
+  <b>Ant.</b>
   De Geest en de bruid zeggen: Kom! <b>*</b> Laat wie het hoort, zeggen: Kom! Wie dorst heeft kome. Wie wil, neme het water des levens, om niet. 
 </p>`,
 
   tienden: `<p>
+  <b>Ant.</b>
   Sla uw scherpe sikkel erin <b>*</b> en oogst de trossen van de wijngaard der aarde, want zijn druiven zijn rijp. Toen wierp de engel zijn sikkel op de aarde en oogstte de wijngaard der aarde. En hij wierp de trossen in de grote perskuip van Gods toorn. 
 </p>`,
 
   voorbereiding: `<p>
+  <b>Ant.</b>
   Weest waakzaam, <b>*</b> want ge weet niet, wanneer de heer des huizes komt,‘s avonds laat of midden in de nacht, bij het hanegekraai of ‘s morgens vroeg. 
 </p>`,
 };
