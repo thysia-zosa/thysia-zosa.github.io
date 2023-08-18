@@ -2,6 +2,7 @@ import { uitnodiging, cantica } from "./uitnodiging.js";
 import { psalmen } from "./psalmen.js";
 import { lezingen } from "./lezingen.js";
 import { profeten } from "./profeten.js";
+import { diurnaal } from "./diurnaal.js";
 
 const feesten = [
   701, 710, 715, 716, 717, 718, 719, 720, 721, 722, 925, 926, 927, 928, 929,
@@ -245,7 +246,7 @@ function getMiddagLezingen(hebreeuwsDatum) {
     maandIndex = 0;
     halfJaarIndex = 7;
   } else {
-    halfJaarIndex += Math.floor(maandIndex/6);
+    halfJaarIndex += Math.floor(maandIndex / 6);
     maandIndex %= 6;
     if (dagIndex === 30) {
       dagIndex = 0;
@@ -258,4 +259,8 @@ function getMiddagLezingen(hebreeuwsDatum) {
   const profeet = profeten[halfJaarIndex][maandIndex][dagIndex];
   return `<h4>Lezingen</h4>
   <h5 class="abschnitt"><i>${dag.wet}<br />${profeet}<br />${dag.apostel}</i></h5>`;
+}
+
+export function getEigen(vandaag) {
+  return diurnaal[vandaag.getFullYear()][vandaag.getMonth()][vandaag.getDate()];
 }

@@ -28,6 +28,9 @@ if (eigen.gebed) {
   gebedEl.innerHTML = eigen.gebed;
   middagGebedEl.innerHTML = eigen.middagGebed ?? eigen.gebed;
 }
+if (eigen.gewag) {
+  gebedEl.innerHTML += eigen.gewag;
+}
 if (eigen.benedictus) {
   benedictus1El.innerHTML = eigen.benedictus;
   benedictus2El.innerHTML = eigen.benedictus;
