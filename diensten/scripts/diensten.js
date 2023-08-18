@@ -1,5 +1,6 @@
 import { uitnodiging, cantica } from "./uitnodiging.js";
 import { psalmen } from "./psalmen.js";
+import { lezingen, profeten } from "./lezingen.js";
 
 const feesten = [
   701, 710, 715, 716, 717, 718, 719, 720, 721, 722, 925, 926, 927, 928, 929,
@@ -15,6 +16,7 @@ export function getUitnodiging(hebreeuwsDatum) {
 
   if (
     feesten.includes(maandDag) ||
+    hebreeuwsDatum.dag === 1 ||
     (maandDag === 1003 && hebreeuwsDatum.jaar.lengte % 10 === 3)
   ) {
     return getFeest(maandDag);
@@ -208,4 +210,42 @@ ${psalm.psalm}
 
 ${psalm.antifoon}
 `;
+}
+
+export function getLezingen(hebreeuwsDatum) {
+  const ochtend = getOchtendLezingen(hebreeuwsDatum);
+  const middag = getMiddagLezingen(hebreeuwsDatum.volgendeDag());
+  return [ochtend, middag];
+}
+
+function getOchtendLezingen(hebreeuwsDatum) {
+  const jaarIndex =
+    hebreeuwsDatum.jaar.weekDag * 1000 + hebreeuwsDatum.jaar.lengte;
+  const dag = lezingen[jaarIndex][hebreeuwsDatum.dagVanHetJaar - 1];
+  if (!dag.lezing && !dag.vervolg && !dag.evangelie) {
+    return "";
+  }
+  const lezing = dag.lezing ? dag.lezing + "<br />" : "";
+  const vervolg = dag.vervolg ? dag.vervolg + "<br />" : "";
+  const evangelie = dag.evangelie ? dag.evangelie + "<br />" : "";
+  return `<h4>Lezingen</h4>
+  <h5 class="abschnitt"><i>${lezing}${vervolg}${evangelie}</i></h5>
+`;
+}
+
+function getMiddagLezingen(hebreeuwsDatum) {
+  const jaarIndex =
+    hebreeuwsDatum.jaar.weekDag * 1000 + hebreeuwsDatum.jaar.lengte;
+  const dag = lezingen[jaarIndex][hebreeuwsDatum.dagVanHetJaar - 1];
+  let halfJaarIndex = (hebreeuwsDatum.jaar.jaar * 2 - 2) % 7;
+  if (hebreeuwsDatum.maand < 7 || hebreeuwsDatum.maand > 0) {
+    halfJaarIndex++;
+  }
+  halfJaarIndex;
+  const profeet =
+    profeten[halfJaarIndex][(hebreeuwsDatum.maand - 1) % 6][
+      hebreeuwsDatum.dag - 1
+    ];
+  return `<h4>Lezingen</h4>
+  <h5 class="abschnitt"><i>${dag.wet}<br />${profeet}<br />${dag.apostel}</i></h5>`;
 }

@@ -10,6 +10,7 @@ const kCyclusInJaaren = 19;
 
 export class HebreeuwsDatum {
   constructor(date) {
+    this.date = date;
     this.juliaansDatum = HebreeuwsDatum.berekenJuliaansDatum(date);
     this.weekDagNummer = HebreeuwsDatum.weekDagVanJuliaansDatum(
       this.juliaansDatum
@@ -20,6 +21,16 @@ export class HebreeuwsDatum {
     this.jaar = hebreeuwsDatum.jaar;
     this.maand = hebreeuwsDatum.maand;
     this.dag = hebreeuwsDatum.dag;
+    this.dagVanHetJaar =
+      this.juliaansDatum -
+      kHebreeuwsJuliaansDatum -
+      this.jaar.vooravondRosjHasjana;
+  }
+
+  volgendeDag() {
+    return new HebreeuwsDatum(
+      new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate() + 1)
+    );
   }
 
   static berekenJuliaansDatum(date) {

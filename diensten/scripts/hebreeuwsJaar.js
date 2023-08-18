@@ -15,6 +15,7 @@ export class HebreeuwsJaar {
     this.vooravondVolgendRosjHasjana =
       HebreeuwsJaar.berekenVooravondRosjHasjana(jaar + 1);
     this.lengte = this.vooravondVolgendRosjHasjana - this.vooravondRosjHasjana;
+    this.weekDag = (this.vooravondRosjHasjana + 1) % 7;
   }
 
   static berekenVooravondRosjHasjana(jaar) {

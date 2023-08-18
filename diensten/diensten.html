@@ -105,6 +105,7 @@
         color: red;
         /* text-decoration: underline; */
       }
+      .abschnitt {margin-bottom: 8pt;}
 
       .initial {
         text-indent: 0;
@@ -297,9 +298,8 @@
           Amen.
         </p>
   
-        <p class="rubrik">Op vierdag, kruisdag, sabbat en feestdagen:</p>
-        <h4><i>Lezing uit het evangelie</i></h4>
-  
+        <div id="ochtendLezing"></div>
+ 
         <p>
           <b>Lofzang</b>
           U, God, loven wij.
@@ -478,7 +478,7 @@
   
         <p>
           <b>Het Gebed</b>
-          Onze Vader, die in de hemel zijt; uw naam worde geheiligd; uw rijk kome; uw wil geschiede op aarde zoals in de hemel. Geef ons heden ons dagelijks brood; en vergeef ons onze schulden, zoals ook wij vergeven aan onze schuldenaren; en breng ons niet in beproevin; maar verlos ons van het kwade.
+          Onze Vader, die in de hemel zijt; uw naam worde geheiligd; uw rijk kome; uw wil geschiede op aarde zoals in de hemel. Geef ons heden ons dagelijks brood; en vergeef ons onze schulden, zoals ook wij vergeven aan onze schuldenaren; en breng ons niet in beproeving; maar verlos ons van het kwade.
           <b>V.</b>
           Want van U is het koninkrijk en de kracht en de heerlijkheid in eeuwigheid.
           <b>R.</b>
@@ -503,7 +503,7 @@
   
         <p>
           <b>V.</b>
-          Bid voor ons en voor uw volk, heilige Dochten van Sion.
+          Bid voor ons en voor uw volk, heilige Dochter van Sion.
           <b>R.</b>
           Opdat heel Israël gered moge worden.
           <b>A.</b>
@@ -660,7 +660,7 @@
   
         <p>
           <b>V.</b>
-          Bid voor ons en voor uw volk, heilige Dochten van Sion.
+          Bid voor ons en voor uw volk, heilige Dochter van Sion.
           <b>R.</b>
           Opdat heel Israël gered moge worden.
           <b>A.</b>
@@ -871,8 +871,8 @@
           Gezegend zijt Gij, <span class="smallCaps">Heer</span>, leer mij uw verordeningen.
         </p>
   
-        <h4><i>Lezingen. </i></h4>
-  
+        <div id="middagLezing"></div>
+ 
         <p>
           <b>R.</b>
           In uw handen, <span class="smallCaps">Heer</span>, beveel ik mijn geest.
@@ -983,7 +983,7 @@
   
         <p>
           <b>V.</b>
-          Bid voor ons en voor uw volk, heilige Dochten van Sion.
+          Bid voor ons en voor uw volk, heilige Dochter van Sion.
           <b>R.</b>
           Opdat heel Israël gered moge worden.
           <b>A.</b>
@@ -1028,5 +1028,7 @@
 	const showAll = () => {
 		toAll('block');
 	};
+
+  showOchtend();
 
 </script>
