@@ -1,6 +1,7 @@
 import { uitnodiging, cantica } from "./uitnodiging.js";
 import { psalmen } from "./psalmen.js";
-import { lezingen, profeten } from "./lezingen.js";
+import { lezingen } from "./lezingen.js";
+import { profeten } from "./profeten.js";
 
 const feesten = [
   701, 710, 715, 716, 717, 718, 719, 720, 721, 722, 925, 926, 927, 928, 929,
@@ -238,14 +239,23 @@ function getMiddagLezingen(hebreeuwsDatum) {
     hebreeuwsDatum.jaar.weekDag * 1000 + hebreeuwsDatum.jaar.lengte;
   const dag = lezingen[jaarIndex][hebreeuwsDatum.dagVanHetJaar - 1];
   let halfJaarIndex = (hebreeuwsDatum.jaar.jaar * 2 - 2) % 7;
-  if (hebreeuwsDatum.maand < 7 || hebreeuwsDatum.maand > 0) {
-    halfJaarIndex++;
+  let maandIndex = hebreeuwsDatum.maand;
+  let dagIndex = hebreeuwsDatum.dag;
+  if (maandIndex === 12) {
+    maandIndex = 0;
+    halfJaarIndex = 7;
+  } else {
+    halfJaarIndex += Math.floor(maandIndex/6);
+    maandIndex %= 6;
+    if (dagIndex === 30) {
+      dagIndex = 0;
+      maandIndex = ++maandIndex % 6;
+    }
+    if (maandIndex === 0) {
+      halfJaarIndex = ++halfJaarIndex % 7;
+    }
   }
-  halfJaarIndex;
-  const profeet =
-    profeten[halfJaarIndex][(hebreeuwsDatum.maand - 1) % 6][
-      hebreeuwsDatum.dag - 1
-    ];
+  const profeet = profeten[halfJaarIndex][maandIndex][dagIndex];
   return `<h4>Lezingen</h4>
   <h5 class="abschnitt"><i>${dag.wet}<br />${profeet}<br />${dag.apostel}</i></h5>`;
 }
