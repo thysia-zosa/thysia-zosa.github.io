@@ -242,9 +242,16 @@ function getMiddagLezingen(hebreeuwsDatum) {
   let halfJaarIndex = (hebreeuwsDatum.jaar.jaar * 2 - 2) % 7;
   let maandIndex = hebreeuwsDatum.maand;
   let dagIndex = hebreeuwsDatum.dag;
-  if (maandIndex === 12) {
+  if (maandIndex === 12 && dagIndex === 30) {
+    maandIndex = 11;
+  }
+  if (
+    maandIndex === 12 ||
+    (maandIndex === 11 && dagIndex === 30 && hebreeuwsDatum.jaar.lengte > 380)
+  ) {
     maandIndex = 0;
     halfJaarIndex = 7;
+    dagIndex %= 30;
   } else {
     halfJaarIndex += Math.floor(maandIndex / 6);
     maandIndex %= 6;
@@ -257,6 +264,13 @@ function getMiddagLezingen(hebreeuwsDatum) {
     }
   }
   const profeet = profeten[halfJaarIndex][maandIndex][dagIndex];
+  if (
+    dagIndex === 1 &&
+    [3, 9, 10].includes(hebreeuwsDatum.maand) &&
+    hebreeuwsDatum.maand + (hebreeuwsDatum.jaar.lengte % 10) < 14
+  ) {
+    profeet = `${profeten[halfJaarIndex][maandIndex][0]} & ${profeet}`;
+  }
   return `<h4>Lezingen</h4>
   <h5 class="abschnitt"><i>${dag.wet}<br />${profeet}<br />${dag.apostel}</i></h5>`;
 }
