@@ -151,7 +151,7 @@ export const uitnodiging = {
 
   voorbereiding: `<p>
   <b>Ant.</b>
-  Weest waakzaam, <b>*</b> want ge weet niet, wanneer de heer des huizes komt,‘s avonds laat of midden in de nacht, bij het hanegekraai of ‘s morgens vroeg. 
+  Weest waakzaam, <b>*</b> want ge weet niet, wanneer de heer des huizes komt, ‘s avonds laat of midden in de nacht, bij het hanegekraai of ‘s morgens vroeg. 
 </p>`,
 };
 

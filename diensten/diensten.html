@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="nl" dir="ltr">
+
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Gebeden</title>
     <script type="module" src="./scripts/main.js" defer></script>
     <style>
@@ -11,16 +12,67 @@
         src: url(tolkien.ttf);
       } */
 
+      @font-face {
+        font-family: 'HebSyr';
+        src: url(fonts/HebSyr.ttf);
+      }
+
+      @font-face {
+        font-family: 'Serto Urhoy';
+        src: url(fonts/SyrCOMUrhoy.otf);
+      }
+
+      @font-face {
+        font-family: 'Arabic Typesetting';
+        src: url(fonts/arabtype.ttf);
+      }
+
+      .hebrew,
+      .syriac {
+        direction: rtl;
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      
+      .hebrew {
+        font-family: 'HebSyr';
+        margin-top: 0.7rem;
+      }
+
+      .syriac {
+        font-family: 'Serto Urhoy';
+      }
+
+      .arabic {
+        font-family: 'Arabic Typesetting';
+        font-size: 2.5rem;
+        line-height: 3rem;
+        margin-top: 0.7rem;
+      }
+
       :root {
         background-color: #333 !important;
         color: #aaa !important;
       }
 
       body {
-        font-family: /* "Tolkien", */ "Bookman Old Style", serif;
+        font-family:
+          /* "Tolkien", */
+          "Bookman Old Style", serif;
+        margin: 0;
+        padding: 2rem 0 2rem 2rem;
+        height: 100vh;
+        max-height: 100vh;
+        direction: ltr;
+        column-count: 1;
+        column-gap: 2rem;
+        box-sizing: border-box;
+        overflow-x: hidden;
       }
 
-      table, th, td {
+      table,
+      th,
+      td {
         border: 1px solid black;
         border-collapse: collapse;
       }
@@ -30,7 +82,8 @@
         margin: 3px;
       }
 
-      th, td {
+      th,
+      td {
         padding: 1px;
         text-align: center;
       }
@@ -95,17 +148,20 @@
         hyphens: auto;
       }
 
-      h1 > i,
-      h2 > i,
-      h3 > i,
-      h4 > i,
-      h5 > i,
-      h6 > i {
+      h1>i,
+      h2>i,
+      h3>i,
+      h4>i,
+      h5>i,
+      h6>i {
         font-style: normal;
         color: red;
         /* text-decoration: underline; */
       }
-      .abschnitt {margin-bottom: 8pt;}
+
+      .abschnitt {
+        margin-bottom: 8pt;
+      }
 
       .initial {
         text-indent: 0;
@@ -113,8 +169,10 @@
 
       /* Firefox */
       .initial::first-letter {
-        /* font-size: 2.8em; */ /* BookmanOS */
-        font-size: 2.3em; /* Tolkien */
+        /* font-size: 2.8em; */
+        /* BookmanOS */
+        font-size: 2.3em;
+        /* Tolkien */
         font-weight: bold;
         padding: 0.1em 0.05em 0 0;
         float: left;
@@ -142,17 +200,17 @@
         /* text-indent: 0.5em; */
       }
 
-      .rubrik > i {
+      .rubrik>i {
         font-style: normal;
         color: black;
       }
 
-      section {
+      /* section {
         column-count: 2;
         column-rule: 1.5px solid black;
         break-after: page;
         margin-bottom: 4em;
-      }
+      } */
 
       .titelbereich {
         break-inside: avoid;
@@ -197,6 +255,7 @@
         }
 
       }
+
       /* @font-face {
         font-family: 'HebSyr';
         src: url(../benedictinum/HebSyr.ttf);
@@ -248,8 +307,10 @@
 
   	  .twocolumn { */
         column-count: 2;
-        column-rule: 1.5px solid black;
-        margin-bottom: 1em;
+        /* column-rule: 1.5px solid black; */
+        /* margin-bottom: 1em; */
+        column-gap: 2rem;
+        margin-right: 2rem;
       }
 
       /* .twocolumn {
@@ -265,21 +326,42 @@
         color: red;
       }
 
+      #overlay {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 10;
+        opacity: 0;
+      }
+
+      .overlays {
+        height: 100%;
+        width: 100%;
+      }
+
       @media only screen and (max-width: 800px) {
+        body {
+          height: unset;
+        }
+
         section {
           column-count: 1;
         }
       }
     </style>
   </head>
+
   <body>
     <h1>Gebeden</h1>
     <div class="noprint" style="text-align: center;">
-			<button type="button" name="ochtend" onclick="showOchtend();">Ochtend</button>
-			<button type="button" name="middag" onclick="showMiddag();">Middag</button>
-			<button type="button" name="avond" onclick="showAvond();">Avond</button>
-		</div>
-    
+      <button type="button" name="ochtend" onclick="showOchtend();">Ochtend</button>
+      <button type="button" name="middag" onclick="showMiddag();">Middag</button>
+      <button type="button" name="avond" onclick="showAvond();">Avond</button>
+    </div>
+
     <section>
       <div class="ochtend">
         <div id="tijtel"></div>
@@ -290,17 +372,24 @@
           <b>R.</b>
           En mijn mind zal uw lof verkondigen.
         </p>
-          
+
         <div id="uitnodiging"></div>
 
-        <p class="minitial">
-          In de naam van de <span class="smallCaps">Heer</span>, genadig en barmhartig: Lof zij U, <span class="smallCaps">Heer</span>, de genadige en barmhartige meester van het heela, die zal heersen op de dag van het oordeel. U dienen wij en U vragen wij om bijstand: Leid ons op de juiste weg, de weg van degenen aan wij Gij uw Genade hebt geschonken, niet die van degenen op wie toorn rust en niet die der dwalenden.
-          <b>R.</b>
-          Amen.
+        <p class="arabic">
+          <b>بِسْمِ ٱللهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ.</b>
+          ٱلْحَمْدُ للهِ رَبِّ ٱلْعَالَمِينَ.
+          ٱلرَّحْمٰنِ ٱلرَّحِيمِ.
+          مٰلِكِ يَوْمِ ٱلدِّينِ.
+          إِيَّاكَ نَعْبُدُ، وَإِيَّاكَ نَسْتَعِينُ.
+          ٱهْدِنَا ٱلصِّرٰطَ ٱلْمُسْتَقِيمَ.
+          صِرٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ،
+          غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ،
+          وَلَا ٱلضَّالِّينَ.
+          <b>آمِينَ.</b>
         </p>
-  
+
         <div id="ochtendLezing"></div>
- 
+
         <p>
           <b>Lofzang</b>
           U, God, loven wij.
@@ -391,32 +480,44 @@
           <b>R.</b>
           Amen.
         </p>
-  
+
+        <p>
+          <b>V.</b>
+          <span class="smallCaps">Heer</span>, verhoor ons gebed.
+          <b>R.</b>
+          En ons geroep kome tot U.
+          <b>V.</b>
+          Laat ons bidden.
+        </p>
+
         <div id="gebed">
           <p>
             <b>Gebed</b>
-            Almachtige God, Gij laat ons het begin van deze dag beleven. Behoed ons met uw heilzame kracht zodat wij vandaag niet neigen naar het kwade, maar altijd uw gerechtigheid volbrengen in ons denken, spreken en doen. Door.
+            Almachtige God, Gij laat ons het begin van deze dag beleven. Behoed ons met uw heilzame kracht zodat wij
+            vandaag niet neigen naar het kwade, maar altijd uw gerechtigheid volbrengen in ons denken, spreken en
+            doen.
+            Door.
           </p>
         </div>
-  
-        <p>
-          <b>Het Gebod</b>
-          Luister, Israël, de <span class="smallCaps">Heer</span> is onze God, de <span class="smallCaps">Heer</span> alleen!
-          <b>R.</b>
-          Geprezen zij de glorierijke Naam van zijn koningschap voor eeuwig en altijd.
-          <b>V.</b>
-          Gij moet de <span class="smallCaps">Heer</span> uw God beminnen met heel uw hart, met heel uw ziel en met al uw krachten. En ge moet uw naaste beminnen gelijk uzelf.
-          <b>R.</b>
-          Gezegend zijt Gij, <span class="smallCaps">Heer</span>, leer mij uw verordeningen.
+
+        <p class="hebrew">
+          <b>שְׁמַע יִשְׂרָאֵל·</b>
+          ﬣ אֱלֹהֵינוּ· ﬣ אֶחָד׃
+          <b>בָּרוּךְ</b>
+          שֵׁם כְּבֹוד מַלְכוּתֹו לְעֹולָם וָעֶד׃
+          <b>וְאָהַבְתָּ</b>
+          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
+          <b>בָּרוּךְ</b>
+          אַתָּה ﬣ· לַמְּדֵנֶי חֻקֶּיךָ׃
         </p>
-  
+
         <p>
           <b>V.</b>
           Iedere ochtend als hij de lampen in orde brengt moet Aäron welriekende wierook op het altaar branden.
           <b>R.</b>
           Dit is het dagelijks reukoffer vor de <span class="smallCaps">Heer</span>.
         </p>
-  
+
         <div id="benedictus1">
           <p>
             <b>Ant.</b>
@@ -425,7 +526,7 @@
             Hij zal het hart van de vaders naar de zonen keren en het hart van de zonen naar de vaders.
           </p>
         </div>
-  
+
         <p>
           <b>Benedictus</b>
           Geprezen zij de <span class="smallCaps">Heer</span>, de God van Israël,
@@ -476,11 +577,12 @@
           <b>*</b>
           en onze voeten te geleiden op een weg van vrede.
         </p>
-  
+
         <div id="benedictus2">
           <p>
             <b>Ant.</b>
-            Zie, Ik ga u de profeet Elia zenden: Hij zal het hart van de vaders naar de zonen keren en het hart van de zonen naar de vaders.
+            Zie, Ik ga u de profeet Elia zenden: Hij zal het hart van de vaders naar de zonen keren en het hart van de
+            zonen naar de vaders.
           </p>
         </div>
 
@@ -490,29 +592,33 @@
           <b>R.</b>
           Wij juichen en verblijden ons.
           <b>V.</b>
-          Heer, ontferm U.
+          <span class="smallCaps">Heer</span>, ontferm U.
           <b>R.</b>
           Christus, ontferm U.
           <b>A.</b>
-          Heer, ontferm U.
+          <span class="smallCaps">Heer</span>, ontferm U.
         </p>
 
-        <p>
-          <b>Het Gebed</b>
-          Onze Vader, die in de hemel zijt; uw naam worde geheiligd; uw rijk kome; uw wil geschiede op aarde zoals in de hemel. Geef ons heden ons dagelijks brood; en vergeef ons onze schulden, zoals ook wij vergeven aan onze schuldenaren; en breng ons niet in beproeving; maar verlos ons van het kwade.
-          <b>V.</b>
-          Want van U is het koninkrijk en de kracht en de heerlijkheid in eeuwigheid.
-          <b>R.</b>
-          Amen.
+        <p class="syriac">
+          <b>ܐܰܒ݂ܽܘܼܢ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ܁</b>
+          ܢܶܬْ݂ܩܰܕ݁ܰܫ ܫ̰ܡܳܟ݂.
+          ܘ̰ܬ݂ܺܐܬ݂ܶܐ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܟ݂.
+          ܘ̰ܢܶܗْ̈ܘܽܘܼܢ ܨܶܒْ݂ܝܳܢܰܝْ̈ܟ݁܁ ܒ݁ܰܐ̰ܪْܥܳܐ ܐܰܝ̰ܟ݂ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ.
+          ܘ̰ܗܰܒ݂ ܠܰܢ ܠܰܚْܡܰܢ ܐܰܡܺܝܼܢܳܐ ܕ݂̰ܝܰܘْܡܳܐ.
+          ܘܰܫْܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘْܒ݁ܰܝْ̈ܢ܁ ܐܰܝ̰ܟ݂ ܕ݁ܶܐ̰ܢܰܚْܢܰܢ ܢܶܫْܒ݁ܽܘܼܩ ܠ̰ܚܰܝܳܒ݂ܰܝْ̈ܢ.
+          ܘ̰ܠܳܐ ܬ݂ܰܝْܬ݁ܶܝܿܢ ܠ̰ܢܶܤْܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܼܫܳܐ܀
+          <b>ܡܶܛܽܠ</b>
+          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܐ ܘ̰ܬ݂ܶܫْܒ݁ܽܘܼܚْܬ݁ܳܐ ܠ̰ܥܳܠْܡܺܝܼܢ܀
+          <b>ܐܰܡܺܝܼܢ܀</b>
         </p>
-  
+
         <p>
           <b>V.</b>
           De naam van de <span class="smallCaps">Heer</span> zij gezegend.
           <b>R.</b>
           Van nu af en tot in eeuwigheid.
         </p>
-  
+
         <p>
           <b>Gedachtenis van Maria</b>
           Tot u nemen wij onze toevlucht:
@@ -521,7 +627,7 @@
           maar verlos ons uit alle gevaren,
           gij, glorierijke en gezegende Maagd.
         </p>
-  
+
         <p>
           <b>V.</b>
           Bid voor ons en voor uw volk, heilige Dochter van Sion.
@@ -530,7 +636,7 @@
           <b>A.</b>
           Amen.
         </p>
-  
+
       </div>
 
       <div class="middag">
@@ -550,13 +656,20 @@
         </p>
 
         <div id="psalm"></div>
-  
-        <p class="minitial">
-          In de naam van de <span class="smallCaps">Heer</span>, genadig en barmhartig: Lof zij U, <span class="smallCaps">Heer</span>, de genadige en barmhartige meester van het heela, die zal heersen op de dag van het oordeel. U dienen wij en U vragen wij om bijstand: Leid ons op de juiste weg, de weg van degenen aan wij Gij uw Genade hebt geschonken, niet die van degenen op wie toorn rust en niet die der dwalenden.
-          <b>R.</b>
-          Amen.
+
+        <p class="arabic">
+          <b>بِسْمِ ٱللهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ.</b>
+          ٱلْحَمْدُ للهِ رَبِّ ٱلْعَالَمِينَ.
+          ٱلرَّحْمٰنِ ٱلرَّحِيمِ.
+          مٰلِكِ يَوْمِ ٱلدِّينِ.
+          إِيَّاكَ نَعْبُدُ، وَإِيَّاكَ نَسْتَعِينُ.
+          ٱهْدِنَا ٱلصِّرٰطَ ٱلْمُسْتَقِيمَ.
+          صِرٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ،
+          غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ،
+          وَلَا ٱلضَّالِّينَ.
+          <b>آمِينَ.</b>
         </p>
-  
+
         <p>
           <b>Hymne</b>
           Vriendelijk Licht van de heilige Glorie
@@ -578,42 +691,56 @@
           U, Zoon van God, die alles ’t leven geeft en zingen doet:
           <b>*</b>
           lof en dank.
+          <b>/</b>
+          Amen.
         </p>
-  
+
+        <p>
+          <b>V.</b>
+          <span class="smallCaps">Heer</span>, verhoor ons gebed.
+          <b>R.</b>
+          En ons geroep kome tot U.
+          <b>V.</b>
+          Laat ons bidden.
+        </p>
+
         <div id="middagGebed">
           <p>
             <b>Gebed</b>
-            Almachtige God, wij danken U dat wij deze middag mogen beleven. Vol vertrouwen heffen wij onze handen naar U op en vragen U: aanvaard ons gebed als een offer dat welgevallig is voor uw aanschijn. Door.
+            Almachtige God, wij danken U dat wij deze middag mogen beleven. Vol vertrouwen heffen wij onze handen naar
+            U
+            op en vragen U: aanvaard ons gebed als een offer dat welgevallig is voor uw aanschijn. Door.
           </p>
         </div>
-  
-        <p>
-          <b>Het Gebod</b>
-          Luister, Israël, de <span class="smallCaps">Heer</span> is onze God, de <span class="smallCaps">Heer</span> alleen!
-          <b>R.</b>
-          Geprezen zij zijn glorierijke Naam voor eeuwig en altijd.
-          <b>V.</b>
-          Gij moet de <span class="smallCaps">Heer</span> uw God beminnen met heel uw hart, met heel uw ziel en met al uw krachten. En ge moet uw naaste beminnen gelijk uzelf.
-          <b>R.</b>
-          Gezegend zijt Gij, <span class="smallCaps">Heer</span>, leer mij uw verordeningen.
+
+        <p class="hebrew">
+          <b>שְׁמַע יִשְׂרָאֵל·</b>
+          ﬣ אֱלֹהֵינוּ· ﬣ אֶחָד׃
+          <b>בָּרוּךְ</b>
+          שֵׁם כְּבֹוד מַלְכוּתֹו לְעֹולָם וָעֶד׃
+          <b>וְאָהַבְתָּ</b>
+          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
+          <b>בָּרוּךְ</b>
+          אַתָּה ﬣ· לַמְּדֵנֶי חֻקֶּיךָ׃
         </p>
-  
+
         <p>
           <b>V.</b>
           Op de middag als hij de lampen aansteekt moet Aäron welriekende wierook op het altaar branden.
           <b>R.</b>
           Dit is het dagelijks reukoffer vor de <span class="smallCaps">Heer</span>.
         </p>
-  
+
         <div id="magnificat1">
           <p>
             <b>Ant.</b>
             Gij, eerbiedwaardiger dan de Cherubijnen,
             <b>*</b>
-            en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept God het Woord hebt gebaard, in waarheid Gods Moeder: u verheffen wij.
+            en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept God het Woord hebt gebaard, in waarheid
+            Gods Moeder: u verheffen wij.
           </p>
         </div>
-  
+
         <p>
           <b>Magnificat</b>
           Hoog verheft nu mijn ziel de <span class="smallCaps">Heer</span>,
@@ -652,43 +779,48 @@
           <b>*</b>
           voor Abraham en zijn geslacht voor altijd.
         </p>
-  
+
         <div id="magnificat2">
           <p>
             <b>Ant.</b>
-            Gij, eerbiedwaardiger dan de Cherubijnen, en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept God het Woord hebt gebaard, in waarheid Gods Moeder: u verheffen wij.
+            Gij, eerbiedwaardiger dan de Cherubijnen, en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept
+            God het Woord hebt gebaard, in waarheid Gods Moeder: u verheffen wij.
           </p>
         </div>
-  
+
         <p>
           <b>V.</b>
           Laat mijn gebed, o <span class="smallCaps">Heer</span>, opstijgen.
           <b>R.</b>
           Als een reukoffer voor uw aanschijn.
           <b>V.</b>
-          Heer, ontferm U.
+          <span class="smallCaps">Heer</span>, ontferm U.
           <b>R.</b>
           Christus, ontferm U.
           <b>A.</b>
-          Heer, ontferm U.
+          <span class="smallCaps">Heer</span>, ontferm U.
         </p>
 
-        <p>
-          <b>Het Gebed</b>
-          Onze Vader, die in de hemel zijt; uw naam worde geheiligd; uw rijk kome; uw wil geschiede op aarde zoals in de hemel. Geef ons heden ons dagelijks brood; en vergeef ons onze schulden, zoals ook wij vergeven aan onze schuldenaren; en breng ons niet in beproeving; maar verlos ons van het kwade.
-          <b>V.</b>
-          Want van U is het koninkrijk en de kracht en de heerlijkheid in eeuwigheid.
-          <b>R.</b>
-          Amen.
+        <p class="syriac">
+          <b>ܐܰܒ݂ܽܘܼܢ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ܁</b>
+          ܢܶܬْ݂ܩܰܕ݁ܰܫ ܫ̰ܡܳܟ݂.
+          ܘ̰ܬ݂ܺܐܬ݂ܶܐ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܟ݂.
+          ܘ̰ܢܶܗْ̈ܘܽܘܼܢ ܨܶܒْ݂ܝܳܢܰܝْ̈ܟ݁܁ ܒ݁ܰܐ̰ܪْܥܳܐ ܐܰܝ̰ܟ݂ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ.
+          ܘ̰ܗܰܒ݂ ܠܰܢ ܠܰܚْܡܰܢ ܐܰܡܺܝܼܢܳܐ ܕ݂̰ܝܰܘْܡܳܐ.
+          ܘܰܫْܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘْܒ݁ܰܝْ̈ܢ܁ ܐܰܝ̰ܟ݂ ܕ݁ܶܐ̰ܢܰܚْܢܰܢ ܢܶܫْܒ݁ܽܘܼܩ ܠ̰ܚܰܝܳܒ݂ܰܝْ̈ܢ.
+          ܘ̰ܠܳܐ ܬ݂ܰܝْܬ݁ܶܝܿܢ ܠ̰ܢܶܤْܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܼܫܳܐ܀
+          <b>ܡܶܛܽܠ</b>
+          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܐ ܘ̰ܬ݂ܶܫْܒ݁ܽܘܼܚْܬ݁ܳܐ ܠ̰ܥܳܠْܡܺܝܼܢ܀
+          <b>ܐܰܡܺܝܼܢ܀</b>
         </p>
-  
+
         <p>
           <b>V.</b>
           De naam van de <span class="smallCaps">Heer</span> zij gezegend.
           <b>R.</b>
           Van nu af en tot in eeuwigheid.
         </p>
-  
+
         <p>
           <b>Gedachtenis van Maria</b>
           U groeten wij, Maria, koningin en moeder vol goedheid.
@@ -699,7 +831,7 @@
           en leid ons door het leven naar Jezus, uw Zoon.
           Moeder vol goedheid en liefde, heilige maagd Maria.
         </p>
-  
+
         <p>
           <b>V.</b>
           Bid voor ons en voor uw volk, heilige Dochter van Sion.
@@ -708,7 +840,7 @@
           <b>A.</b>
           Amen.
         </p>
-  
+
       </div>
 
       <div class="avond">
@@ -725,7 +857,7 @@
           <b>*</b>
           en in de eeuwen der eeuwen. Amen. Alleluia.
         </p>
-  
+
         <p>
           <b>Gebed van Manasse</b>
           <span class="smallCaps">Heer</span>, almachtige God;
@@ -834,14 +966,14 @@
           <b>R.</b>
           Amen.
         </p>
-    
+
         <p>
           <b>V.</b>
           Onze hulp is in de naam van de <span class="smallCaps">Heer</span>.
           <b>R.</b>
           Die hemel en aarde gemaakt heeft.
         </p>
-  
+
         <p>
           <b>V.</b>
           <span class="smallCaps">Heer</span>, ontferm U over ons.
@@ -852,7 +984,9 @@
           <b>R.</b>
           En schenk ons uw heil.
           <b>R.</b>
-          Moge de <span class="smallCaps">Heer</span> zich over ons ontfermen, onze zonden vergeven en ons geleiden tot het eeuwig leven.
+          Moge de <span class="smallCaps">Heer</span> zich over ons ontfermen, onze zonden vergeven en ons geleiden
+          tot
+          het eeuwig leven.
           <b>R.</b>
           Amen.
           <b>V.</b>
@@ -860,7 +994,7 @@
           <b>R.</b>
           En wend uw toorn van ons af.
         </p>
-  
+
         <p>
           <b>Hymne</b>
           U, voor het licht ten eind zal gaan,
@@ -897,31 +1031,42 @@
           <b>/</b>
           Amen.
         </p>
-  
-        <p class="minitial">
-          <span class="smallCaps">Heer</span>, bezoek dit huis en houd ver van ons alle listen van de vijand. Mogen uw engelen hier wonen om ons in vrede te bewaren en laat uw zegen altijd op ons rusten. Door Christus onze Heer.
-        </p>
-  
+
         <p>
-          <b>Het Gebod</b>
-          Luister, Israël, de <span class="smallCaps">Heer</span> is onze God, de <span class="smallCaps">Heer</span> alleen!
-          <b>R.</b>
-          Geprezen zij de glorierijke Naam van zijn koningschap voor eeuwig en altijd.
           <b>V.</b>
-          Gij moet de <span class="smallCaps">Heer</span> uw God beminnen met heel uw hart, met heel uw ziel en met al uw krachten. En ge moet uw naaste beminnen gelijk uzelf.
+          <span class="smallCaps">Heer</span>, verhoor ons gebed.
           <b>R.</b>
-          Gezegend zijt Gij, <span class="smallCaps">Heer</span>, leer mij uw verordeningen.
+          En ons geroep kome tot U.
+          <b>V.</b>
+          Laat ons bidden.
         </p>
-  
+
+        <p class="minitial">
+          <span class="smallCaps">Heer</span>, bezoek dit huis en houd ver van ons alle listen van de vijand. Mogen uw
+          engelen hier wonen om ons in vrede te bewaren en laat uw zegen altijd op ons rusten. Door Christus onze
+          Heer.
+        </p>
+
+        <p class="hebrew">
+          <b>שְׁמַע יִשְׂרָאֵל·</b>
+          ﬣ אֱלֹהֵינוּ· ﬣ אֶחָד׃
+          <b>בָּרוּךְ</b>
+          שֵׁם כְּבֹוד מַלְכוּתֹו לְעֹולָם וָעֶד׃
+          <b>וְאָהַבְתָּ</b>
+          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
+          <b>בָּרוּךְ</b>
+          אַתָּה ﬣ· לַמְּדֵנֶי חֻקֶּיךָ׃
+        </p>
+
         <div id="middagLezing"></div>
- 
+
         <p>
           <b>R.</b>
           In uw handen, <span class="smallCaps">Heer</span>, beveel ik mijn geest.
           <b>V.</b>
           Gij zijt mijn Verlosser, getrouwe God.
         </p>
-  
+
         <p>
           <b>Ant.</b>
           Bewaar ons, <span class="smallCaps">Heer</span>, als wij waken;
@@ -930,7 +1075,7 @@
           <b>(Pt.</b>
           Alleluia.<b>)</b>
         </p>
-  
+
         <p>
           <b>Nunc dimittis</b>
           Laat nu, Heer, volgens uw woord
@@ -945,43 +1090,48 @@
           <b>*</b>
           de glorie van Israël uw volk.
         </p>
-  
+
         <p>
           <b>Ant.</b>
-          Bewaar ons, <span class="smallCaps">Heer</span>, als wij waken; bescherm ons, als wij slapen; dan zullen wij waken met Christus en rusten in vrede.
+          Bewaar ons, <span class="smallCaps">Heer</span>, als wij waken; bescherm ons, als wij slapen; dan zullen wij
+          waken met Christus en rusten in vrede.
           <b>(Pt.</b>
           Alleluia.<b>)</b>
         </p>
-  
+
         <p>
           <b>V.</b>
           Bewaar ons, <span class="smallCaps">Heer</span>, als de appel van uw oog.
           <b>R.</b>
           Bescherm ons in de schaduw van uw vleugelen.
           <b>V.</b>
-          Heer, ontferm U.
+          <span class="smallCaps">Heer</span>, ontferm U.
           <b>R.</b>
           Christus, ontferm U.
           <b>A.</b>
-          Heer, ontferm U.
+          <span class="smallCaps">Heer</span>, ontferm U.
         </p>
-    
-        <p>
-          <b>Het Gebed</b>
-          Onze Vader, die in de hemel zijt; uw naam worde geheiligd; uw rijk kome; uw wil geschiede op aarde zoals in de hemel. Geef ons heden ons dagelijks brood; en vergeef ons onze schulden, zoals ook wij vergeven aan onze schuldenaren; en breng ons niet in beproeving; maar verlos ons van het kwade.
-          <b>V.</b>
-          Want van U is het koninkrijk en de kracht en de heerlijkheid in eeuwigheid.
-          <b>R.</b>
-          Amen.
+
+        <p class="syriac">
+          <b>ܐܰܒ݂ܽܘܼܢ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ܁</b>
+          ܢܶܬْ݂ܩܰܕ݁ܰܫ ܫ̰ܡܳܟ݂.
+          ܘ̰ܬ݂ܺܐܬ݂ܶܐ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܟ݂.
+          ܘ̰ܢܶܗْ̈ܘܽܘܼܢ ܨܶܒْ݂ܝܳܢܰܝْ̈ܟ݁܁ ܒ݁ܰܐ̰ܪْܥܳܐ ܐܰܝ̰ܟ݂ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ.
+          ܘ̰ܗܰܒ݂ ܠܰܢ ܠܰܚْܡܰܢ ܐܰܡܺܝܼܢܳܐ ܕ݂̰ܝܰܘْܡܳܐ.
+          ܘܰܫْܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘْܒ݁ܰܝْ̈ܢ܁ ܐܰܝ̰ܟ݂ ܕ݁ܶܐ̰ܢܰܚْܢܰܢ ܢܶܫْܒ݁ܽܘܼܩ ܠ̰ܚܰܝܳܒ݂ܰܝْ̈ܢ.
+          ܘ̰ܠܳܐ ܬ݂ܰܝْܬ݁ܶܝܿܢ ܠ̰ܢܶܤْܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܼܫܳܐ܀
+          <b>ܡܶܛܽܠ</b>
+          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܐ ܘ̰ܬ݂ܶܫْܒ݁ܽܘܼܚْܬ݁ܳܐ ܠ̰ܥܳܠْܡܺܝܼܢ܀
+          <b>ܐܰܡܺܝܼܢ܀</b>
         </p>
-  
+
         <p>
           <b>V.</b>
           De naam van de <span class="smallCaps">Heer</span> zij gezegend.
           <b>R.</b>
           Van nu af en tot in eeuwigheid.
         </p>
-  
+
         <h4>Gedachtenis van Maria</h4>
         <p>
           <b>Advent / Kersttijd</b>
@@ -995,7 +1145,7 @@
           gij die door Gabriël zijt begroet,
           ontferm u over ons, zondaars.
         </p>
-  
+
         <p>
           <b>Na opdracht van de Heer</b>
           Gegroet gij, hemelkoningin;
@@ -1006,7 +1156,7 @@
           Vaarwel en bied uw hulpbetoon,
           wees onze voorspraak bij uw Zoon.
         </p>
-  
+
         <p>
           <b>Paastijd</b>
           Koningin des hemels, verheug u, alleluia.
@@ -1014,7 +1164,7 @@
           Is verrezen, zoals Hij gezegd heeft, alleluia.
           Bid voor ons bij God, alleluia.
         </p>
-  
+
         <p>
           <b>Na het Wekenfeest</b>
           Wees gegroet, koningin, moeder van barmhartigheid;
@@ -1028,7 +1178,7 @@
           O goedertieren, o liefdevolle,
           o zoete maagd Maria.
         </p>
-  
+
         <p>
           <b>V.</b>
           Bid voor ons en voor uw volk, heilige Dochter van Sion.
@@ -1037,46 +1187,83 @@
           <b>A.</b>
           Amen.
         </p>
-  
+
       </div>
 
     </section>
-
+    <div id="overlay">
+      <div id="toLeft" class="overlays"></div>
+      <div id="toRight" class="overlays"></div>
+    </div>
   </body>
+
 </html>
 <script>
-	const title = document.getElementById('title');
+  const title = document.getElementById('title');
   const ochtend = document.getElementsByClassName('ochtend');
   const middag = document.getElementsByClassName('middag');
   const avond = document.getElementsByClassName('avond');
   const allAll = [
-    ochtend,middag,avond,
+    ochtend, middag, avond,
   ];
   const uitnodiging = document.getElementById('uitnodiging');
 
   const clear = () => {
-		Array.from(allAll).forEach((el) => {
+    Array.from(allAll).forEach((el) => {
       Array.from(el).forEach((ell) => {
         ell.style.display = 'none';
       });
-		});
-	};
+    });
+  };
 
-	const show = (className) => {
-		clear();
-		Array.from(className).forEach((el) => {
-			el.style.display = 'block';
-		});
-	};
+  const show = (className) => {
+    clear();
+    Array.from(className).forEach((el) => {
+      el.style.display = 'block';
+    });
+  };
 
   const showOchtend = () => show(ochtend);
   const showMiddag = () => show(middag);
   const showAvond = () => show(avond);
 
-	const showAll = () => {
-		toAll('block');
-	};
+  const showAll = () => {
+    toAll('block');
+  };
 
   showOchtend();
+
+  const toLeft = document.getElementById('toLeft');
+  const toRight = document.getElementById('toRight');
+  let width;
+  function scrollToX(x) {
+    goal = Math.round(x / width) * width
+    window.scrollTo({ left: goal, behavior: 'smooth' })
+  }
+  setTimeout(() => {
+    width = document.body.clientWidth;
+    if (width > 800) {
+      width /= 2
+    }
+  }, 500)
+  toLeft.addEventListener('click', (event) => {
+    scrollToX(window.scrollX - width)
+  })
+  toRight.addEventListener('click', (event) => {
+    scrollToX(window.scrollX + width)
+  })
+
+  screen.orientation.addEventListener('change', () => {
+    setTimeout(() => {
+      width = document.body.clientWidth;
+      if (width > 800) {
+        width /= 2
+      }
+      scrollToX(window.scrollX)
+    }, 500);
+  })
+
+  window.addEventListener('touchmove', (event) => { event.preventDefault(); event.stopPropagation(); return false })
+
 
 </script>

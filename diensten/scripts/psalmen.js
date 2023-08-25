@@ -7103,11 +7103,11 @@ export const psalmen = [
   velddieren knagen hem kaal.
   <b>15</b>
   God van de machten, ach, kom terug,
-  <b>†</b>
-  zie toch neer vanuit uw hemel,
   <b>*</b>
-  zorg voor deze wijnstok,
+  zie toch neer vanuit uw hemel,
   <b>16</b>
+  zorg voor deze wijnstok,
+  <b>†</b>
   de stek van uw rechterhand,
   <b>*</b>
   de zoon wie U uw kracht hebt verleend.
