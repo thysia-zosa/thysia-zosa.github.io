@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl" dir="ltr">
-
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Gebeden</title>
     <script type="module" src="./scripts/main.js" defer></script>
     <style>
@@ -13,17 +12,17 @@
       } */
 
       @font-face {
-        font-family: 'HebSyr';
+        font-family: "HebSyr";
         src: url(fonts/HebSyr.ttf);
       }
 
       @font-face {
-        font-family: 'Serto Urhoy';
+        font-family: "Serto Urhoy";
         src: url(fonts/SyrCOMUrhoy.otf);
       }
 
       @font-face {
-        font-family: 'Arabic Typesetting';
+        font-family: "Arabic Typesetting";
         src: url(fonts/arabtype.ttf);
       }
 
@@ -33,18 +32,19 @@
         font-size: 1.5rem;
         line-height: 2rem;
       }
-      
+
       .hebrew {
-        font-family: 'HebSyr';
+        font-family: "HebSyr";
         margin-top: 0.7rem;
       }
 
       .syriac {
-        font-family: 'Serto Urhoy';
+        font-family: "Serto Urhoy";
       }
 
       .arabic {
-        font-family: 'Arabic Typesetting';
+        direction: rtl;
+        font-family: "Arabic Typesetting";
         font-size: 2.5rem;
         line-height: 3rem;
         margin-top: 0.7rem;
@@ -61,8 +61,7 @@
 
       body {
         font-family:
-          /* "Tolkien", */
-          "Bookman Old Style", serif;
+          /* "Tolkien", */ "Bookman Old Style", serif;
         margin: 0;
         padding: 2rem 0 2rem 2rem;
         height: 100vh;
@@ -119,6 +118,7 @@
       h1 {
         font-weight: bold;
         text-transform: uppercase;
+        margin-right: 2rem;
       }
 
       h2 {
@@ -152,12 +152,12 @@
         hyphens: auto;
       }
 
-      h1>i,
-      h2>i,
-      h3>i,
-      h4>i,
-      h5>i,
-      h6>i {
+      h1 > i,
+      h2 > i,
+      h3 > i,
+      h4 > i,
+      h5 > i,
+      h6 > i {
         font-style: normal;
         color: red;
         /* text-decoration: underline; */
@@ -204,7 +204,7 @@
         /* text-indent: 0.5em; */
       }
 
-      .rubrik>i {
+      .rubrik > i {
         font-style: normal;
         color: black;
       }
@@ -257,7 +257,6 @@
         .noprint {
           display: none;
         }
-
       }
 
       /* @font-face {
@@ -315,6 +314,7 @@
         /* margin-bottom: 1em; */
         column-gap: 2rem;
         margin-right: 2rem;
+        /* max-height: -webkit-fill-available; */
       }
 
       /* .twocolumn {
@@ -338,7 +338,6 @@
         height: 100vh;
         width: 100vw;
         z-index: 10;
-        opacity: 0;
       }
 
       .overlays {
@@ -346,10 +345,19 @@
         width: 100%;
       }
 
+      .overlays button {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 1.9rem;
+        height: 1.9rem;
+        padding: 0;
+      }
+
       @media only screen and (max-width: 800px) {
-        body {
+        /* body {
           height: unset;
-        }
+        } */
 
         section {
           column-count: 1;
@@ -360,9 +368,21 @@
 
   <body>
     <h1>Gebeden</h1>
-    <div class="noprint" style="text-align: center; z-index: 100; position: relative;">
-      <button type="button" name="ochtend" onclick="showOchtend();">Ochtend</button>
-      <button type="button" name="middag" onclick="showMiddag();">Middag</button>
+    <div
+      class="noprint"
+      style="
+        text-align: center;
+        z-index: 100;
+        position: relative;
+        margin-right: 2rem;
+      "
+    >
+      <button type="button" name="ochtend" onclick="showOchtend();">
+        Ochtend
+      </button>
+      <button type="button" name="middag" onclick="showMiddag();">
+        Middag
+      </button>
       <button type="button" name="avond" onclick="showAvond();">Avond</button>
     </div>
 
@@ -380,16 +400,12 @@
         <div id="uitnodiging"></div>
 
         <p class="arabic">
-          <b>بِسْمِ ٱللهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ.</b>
-          ٱلْحَمْدُ للهِ رَبِّ ٱلْعَالَمِينَ.
-          ٱلرَّحْمٰنِ ٱلرَّحِيمِ.
-          مٰلِكِ يَوْمِ ٱلدِّينِ.
-          إِيَّاكَ نَعْبُدُ، وَإِيَّاكَ نَسْتَعِينُ.
-          ٱهْدِنَا ٱلصِّرٰطَ ٱلْمُسْتَقِيمَ.
-          صِرٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ،
-          غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ،
-          وَلَا ٱلضَّالِّينَ.
-          <b>آمِينَ.</b>
+          <span class="rot">بِسْمِ ٱللهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ.</span>
+          ٱلْحَمْدُ للهِ رَبِّ ٱلْعَالَمِينَ. ٱلرَّحْمٰنِ ٱلرَّحِيمِ. مٰلِكِ
+          يَوْمِ ٱلدِّينِ. إِيَّاكَ نَعْبُدُ، وَإِيَّاكَ نَسْتَعِينُ. ٱهْدِنَا
+          ٱلصِّرٰطَ ٱلْمُسْتَقِيمَ. صِرٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ،
+          غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ، وَلَا ٱلضَّالِّينَ.
+          <span class="rot">آمِينَ.</span>
         </p>
 
         <div id="ochtendLezing"></div>
@@ -497,29 +513,32 @@
         <div id="gebed">
           <p>
             <b>Gebed</b>
-            Almachtige God, Gij laat ons het begin van deze dag beleven. Behoed ons met uw heilzame kracht zodat wij
-            vandaag niet neigen naar het kwade, maar altijd uw gerechtigheid volbrengen in ons denken, spreken en
-            doen.
-            Door.
+            Almachtige God, Gij laat ons het begin van deze dag beleven. Behoed
+            ons met uw heilzame kracht zodat wij vandaag niet neigen naar het
+            kwade, maar altijd uw gerechtigheid volbrengen in ons denken,
+            spreken en doen. Door.
           </p>
         </div>
 
         <p class="hebrew">
-          <b>שְׁמַע יִשְׂרָאֵל·</b>
+          <span class="rot">שְׁמַע יִשְׂרָאֵל·</span>
           ﬣ אֱלֹהֵינוּ· ﬣ אֶחָד׃
-          <b>בָּרוּךְ</b>
+          <span class="rot">בָּרוּךְ</span>
           שֵׁם כְּבֹוד מַלְכוּתֹו לְעֹולָם וָעֶד׃
-          <b>וְאָהַבְתָּ</b>
-          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
-          <b>בָּרוּךְ</b>
-          אַתָּה ﬣ· לַמְּדֵנֶי חֻקֶּיךָ׃
+          <span class="rot">וְאָהַבְתָּ</span>
+          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ
+          וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
+          <span class="rot">בָּרוּךְ</span>
+          אַתָּה ﬣ· לַמְּדֵנִי חֻקֶּיךָ׃
         </p>
 
         <p>
           <b>V.</b>
-          Iedere ochtend als hij de lampen in orde brengt moet Aäron welriekende wierook op het altaar branden.
+          Iedere ochtend als hij de lampen in orde brengt moet Aäron welriekende
+          wierook op het altaar branden.
           <b>R.</b>
-          Dit is het dagelijks reukoffer vor de <span class="smallCaps">Heer</span>.
+          Dit is het dagelijks reukoffer vor de
+          <span class="smallCaps">Heer</span>.
         </p>
 
         <div id="benedictus1">
@@ -527,13 +546,15 @@
             <b>Ant.</b>
             Zie, Ik ga u de profeet Elia zenden:
             <b>*</b>
-            Hij zal het hart van de vaders naar de zonen keren en het hart van de zonen naar de vaders.
+            Hij zal het hart van de vaders naar de zonen keren en het hart van
+            de zonen naar de vaders.
           </p>
         </div>
 
         <p>
           <b>Benedictus</b>
-          Geprezen zij de <span class="smallCaps">Heer</span>, de God van Israël,
+          Geprezen zij de <span class="smallCaps">Heer</span>, de God van
+          Israël,
           <b>*</b>
           omdat Hij omziet naar zijn volk en het bevrijdt.
           <b>2</b>
@@ -567,7 +588,8 @@
           <b>9</b>
           En gij, kind, zult profeet zijn van de Allerhoogste,
           <b>*</b>
-          want gij gaat voor de <span class="smallCaps">Heer</span> uit om zijn weg te banen.
+          want gij gaat voor de <span class="smallCaps">Heer</span> uit om zijn
+          weg te banen.
           <b>10</b>
           Gij zult zijn volk de boodschap van verlossing brengen
           <b>*</b>
@@ -585,8 +607,8 @@
         <div id="benedictus2">
           <p>
             <b>Ant.</b>
-            Zie, Ik ga u de profeet Elia zenden: Hij zal het hart van de vaders naar de zonen keren en het hart van de
-            zonen naar de vaders.
+            Zie, Ik ga u de profeet Elia zenden: Hij zal het hart van de vaders
+            naar de zonen keren en het hart van de zonen naar de vaders.
           </p>
         </div>
 
@@ -604,16 +626,14 @@
         </p>
 
         <p class="syriac">
-          <b>ܐܰܒ݂ܽܘܼܢ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ܁</b>
-          ܢܶܬْ݂ܩܰܕ݁ܰܫ ܫ̰ܡܳܟ݂.
-          ܘ̰ܬ݂ܺܐܬ݂ܶܐ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܟ݂.
-          ܘ̰ܢܶܗْ̈ܘܽܘܼܢ ܨܶܒْ݂ܝܳܢܰܝْ̈ܟ݁܁ ܒ݁ܰܐ̰ܪْܥܳܐ ܐܰܝ̰ܟ݂ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ.
-          ܘ̰ܗܰܒ݂ ܠܰܢ ܠܰܚْܡܰܢ ܐܰܡܺܝܼܢܳܐ ܕ݂̰ܝܰܘْܡܳܐ.
-          ܘܰܫْܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘْܒ݁ܰܝْ̈ܢ܁ ܐܰܝ̰ܟ݂ ܕ݁ܶܐ̰ܢܰܚْܢܰܢ ܢܶܫْܒ݁ܽܘܼܩ ܠ̰ܚܰܝܳܒ݂ܰܝْ̈ܢ.
-          ܘ̰ܠܳܐ ܬ݂ܰܝْܬ݁ܶܝܿܢ ܠ̰ܢܶܤْܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܼܫܳܐ܀
-          <b>ܡܶܛܽܠ</b>
-          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܐ ܘ̰ܬ݂ܶܫْܒ݁ܽܘܼܚْܬ݁ܳܐ ܠ̰ܥܳܠْܡܺܝܼܢ܀
-          <b>ܐܰܡܺܝܼܢ܀</b>
+          <span class="rot">ܐܰܒ݂ܽܘܼܢ ܕ݁ܒ݂ܰܫ̈ܡܰܝܳܐ܁</span>
+          ܢܶܬ݂ܩܰܕ݁ܰܫ ܫܡܳܟ݂. ܘܬ݂ܺܐܬ݂ܶܐ ܡܰܠܟ݁ܽܘܼܬ݂ܳܟ݂. ܘܢܶܗ̈ܘܽܘܼܢ ܨܶܒ݂ܝܳܢܰܝ̈ܟ݁܁
+          ܒ݁ܰܐܪܥܳܐ ܐܰܝܟ݂ ܕ݁ܒ݂ܰܫ̈ܡܰܝܳܐ. ܘܗܰܒ݂ ܠܰܢ ܠܰܚܡܰܢ ܐܰܡܺܝܢܳܐ ܕ݂ܝܰܘܡܳܐ.
+          ܘܰܫܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘܒ݁ܰܝ̈ܢ܁ ܐܰܝܟ݂ ܕ݁ܶܐܢܰܚܢܰܢ ܢܶܫܒ݁ܽܘܼܩ ܠܚܰܝܳܒ݂ܰܝ̈ܢ. ܘܠܳܐ
+          ܬ݂ܰܝܬ݁ܶܝܿܢ ܠܢܶܤܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܫܳܐ܀
+          <span class="rot">ܡܶܛܽܠ</span>
+          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠܟ݁ܽܘܼܬ݂ܳܐ ܘܬ݂ܶܫܒ݁ܽܘܼܚܬ݁ܳܐ ܠܥܳܠܰܡ ܥܳܠܡܺܝܼܢ܀
+          <span class="rot">ܐܰܡܺܝܢ܀</span>
         </p>
 
         <p>
@@ -636,7 +656,6 @@
           <b>A.</b>
           Amen.
         </p>
-
       </div>
 
       <div class="middag">
@@ -658,16 +677,12 @@
         <div id="psalm"></div>
 
         <p class="arabic">
-          <b>بِسْمِ ٱللهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ.</b>
-          ٱلْحَمْدُ للهِ رَبِّ ٱلْعَالَمِينَ.
-          ٱلرَّحْمٰنِ ٱلرَّحِيمِ.
-          مٰلِكِ يَوْمِ ٱلدِّينِ.
-          إِيَّاكَ نَعْبُدُ، وَإِيَّاكَ نَسْتَعِينُ.
-          ٱهْدِنَا ٱلصِّرٰطَ ٱلْمُسْتَقِيمَ.
-          صِرٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ،
-          غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ،
-          وَلَا ٱلضَّالِّينَ.
-          <b>آمِينَ.</b>
+          <span class="rot">بِسْمِ ٱللهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ.</span>
+          ٱلْحَمْدُ للهِ رَبِّ ٱلْعَالَمِينَ. ٱلرَّحْمٰنِ ٱلرَّحِيمِ. مٰلِكِ
+          يَوْمِ ٱلدِّينِ. إِيَّاكَ نَعْبُدُ، وَإِيَّاكَ نَسْتَعِينُ. ٱهْدِنَا
+          ٱلصِّرٰطَ ٱلْمُسْتَقِيمَ. صِرٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ،
+          غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ، وَلَا ٱلضَّالِّينَ.
+          <span class="rot">آمِينَ.</span>
         </p>
 
         <p>
@@ -707,28 +722,31 @@
         <div id="middagGebed">
           <p>
             <b>Gebed</b>
-            Almachtige God, wij danken U dat wij deze middag mogen beleven. Vol vertrouwen heffen wij onze handen naar
-            U
-            op en vragen U: aanvaard ons gebed als een offer dat welgevallig is voor uw aanschijn. Door.
+            Almachtige God, wij danken U dat wij deze middag mogen beleven. Vol
+            vertrouwen heffen wij onze handen naar U op en vragen U: aanvaard
+            ons gebed als een offer dat welgevallig is voor uw aanschijn. Door.
           </p>
         </div>
 
         <p class="hebrew">
-          <b>שְׁמַע יִשְׂרָאֵל·</b>
+          <span class="rot">שְׁמַע יִשְׂרָאֵל·</span>
           ﬣ אֱלֹהֵינוּ· ﬣ אֶחָד׃
-          <b>בָּרוּךְ</b>
+          <span class="rot">בָּרוּךְ</span>
           שֵׁם כְּבֹוד מַלְכוּתֹו לְעֹולָם וָעֶד׃
-          <b>וְאָהַבְתָּ</b>
-          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
-          <b>בָּרוּךְ</b>
-          אַתָּה ﬣ· לַמְּדֵנֶי חֻקֶּיךָ׃
+          <span class="rot">וְאָהַבְתָּ</span>
+          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ
+          וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
+          <span class="rot">בָּרוּךְ</span>
+          אַתָּה ﬣ· לַמְּדֵנִי חֻקֶּיךָ׃
         </p>
 
         <p>
           <b>V.</b>
-          Op de middag als hij de lampen aansteekt moet Aäron welriekende wierook op het altaar branden.
+          Op de middag als hij de lampen aansteekt moet Aäron welriekende
+          wierook op het altaar branden.
           <b>R.</b>
-          Dit is het dagelijks reukoffer vor de <span class="smallCaps">Heer</span>.
+          Dit is het dagelijks reukoffer vor de
+          <span class="smallCaps">Heer</span>.
         </p>
 
         <div id="magnificat1">
@@ -736,8 +754,8 @@
             <b>Ant.</b>
             Gij, eerbiedwaardiger dan de Cherubijnen,
             <b>*</b>
-            en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept God het Woord hebt gebaard, in waarheid
-            Gods Moeder: u verheffen wij.
+            en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept God
+            het Woord hebt gebaard, in waarheid Gods Moeder: u verheffen wij.
           </p>
         </div>
 
@@ -783,8 +801,9 @@
         <div id="magnificat2">
           <p>
             <b>Ant.</b>
-            Gij, eerbiedwaardiger dan de Cherubijnen, en onvergelijkelijk glorierijker dan de Serafijnen, die ongerept
-            God het Woord hebt gebaard, in waarheid Gods Moeder: u verheffen wij.
+            Gij, eerbiedwaardiger dan de Cherubijnen, en onvergelijkelijk
+            glorierijker dan de Serafijnen, die ongerept God het Woord hebt
+            gebaard, in waarheid Gods Moeder: u verheffen wij.
           </p>
         </div>
 
@@ -802,16 +821,14 @@
         </p>
 
         <p class="syriac">
-          <b>ܐܰܒ݂ܽܘܼܢ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ܁</b>
-          ܢܶܬْ݂ܩܰܕ݁ܰܫ ܫ̰ܡܳܟ݂.
-          ܘ̰ܬ݂ܺܐܬ݂ܶܐ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܟ݂.
-          ܘ̰ܢܶܗْ̈ܘܽܘܼܢ ܨܶܒْ݂ܝܳܢܰܝْ̈ܟ݁܁ ܒ݁ܰܐ̰ܪْܥܳܐ ܐܰܝ̰ܟ݂ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ.
-          ܘ̰ܗܰܒ݂ ܠܰܢ ܠܰܚْܡܰܢ ܐܰܡܺܝܼܢܳܐ ܕ݂̰ܝܰܘْܡܳܐ.
-          ܘܰܫْܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘْܒ݁ܰܝْ̈ܢ܁ ܐܰܝ̰ܟ݂ ܕ݁ܶܐ̰ܢܰܚْܢܰܢ ܢܶܫْܒ݁ܽܘܼܩ ܠ̰ܚܰܝܳܒ݂ܰܝْ̈ܢ.
-          ܘ̰ܠܳܐ ܬ݂ܰܝْܬ݁ܶܝܿܢ ܠ̰ܢܶܤْܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܼܫܳܐ܀
-          <b>ܡܶܛܽܠ</b>
-          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܐ ܘ̰ܬ݂ܶܫْܒ݁ܽܘܼܚْܬ݁ܳܐ ܠ̰ܥܳܠْܡܺܝܼܢ܀
-          <b>ܐܰܡܺܝܼܢ܀</b>
+          <span class="rot">ܐܰܒ݂ܽܘܼܢ ܕ݁ܒ݂ܰܫ̈ܡܰܝܳܐ܁</span>
+          ܢܶܬ݂ܩܰܕ݁ܰܫ ܫܡܳܟ݂. ܘܬ݂ܺܐܬ݂ܶܐ ܡܰܠܟ݁ܽܘܼܬ݂ܳܟ݂. ܘܢܶܗ̈ܘܽܘܼܢ ܨܶܒ݂ܝܳܢܰܝ̈ܟ݁܁
+          ܒ݁ܰܐܪܥܳܐ ܐܰܝܟ݂ ܕ݁ܒ݂ܰܫ̈ܡܰܝܳܐ. ܘܗܰܒ݂ ܠܰܢ ܠܰܚܡܰܢ ܐܰܡܺܝܢܳܐ ܕ݂ܝܰܘܡܳܐ.
+          ܘܰܫܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘܒ݁ܰܝ̈ܢ܁ ܐܰܝܟ݂ ܕ݁ܶܐܢܰܚܢܰܢ ܢܶܫܒ݁ܽܘܼܩ ܠܚܰܝܳܒ݂ܰܝ̈ܢ. ܘܠܳܐ
+          ܬ݂ܰܝܬ݁ܶܝܿܢ ܠܢܶܤܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܫܳܐ܀
+          <span class="rot">ܡܶܛܽܠ</span>
+          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠܟ݁ܽܘܼܬ݂ܳܐ ܘܬ݂ܶܫܒ݁ܽܘܼܚܬ݁ܳܐ ܠܥܳܠܰܡ ܥܳܠܡܺܝܼܢ܀
+          <span class="rot">ܐܰܡܺܝܢ܀</span>
         </p>
 
         <p>
@@ -823,13 +840,7 @@
 
         <p>
           <b>Gedachtenis van Maria</b>
-          U groeten wij, Maria, koningin en moeder vol goedheid.
-          Bij u vinden wij het leven, de vreugde en de hoop.
-          Wij roepen u aan op onze pelgrimstocht.
-          Wees uw lijdend volk nabij.
-          Gedenk ons, zie barmhartig op ons neer
-          en leid ons door het leven naar Jezus, uw Zoon.
-          Moeder vol goedheid en liefde, heilige maagd Maria.
+          <span lang="la">Ave María, grátia plena: Dóminus tecum; benedícta tu in muliéribus, et benedíctus fructus ventris tui, Iesus. Sancta María, Mater Dei: ora pro nobis, peccatóribus, nunc et in hora mortis nostræ. Amen.</span>
         </p>
 
         <p>
@@ -840,7 +851,6 @@
           <b>A.</b>
           Amen.
         </p>
-
       </div>
 
       <div class="avond">
@@ -886,13 +896,15 @@
           <b>*</b>
           is onmetelijk en ondoorgrondelijk.
           <b>7</b>
-          Want Gij, <span class="smallCaps">Heer</span> de Allerhoogste, zijt lankmoedig,
+          Want Gij, <span class="smallCaps">Heer</span> de Allerhoogste, zijt
+          lankmoedig,
           <b>†</b>
           grootmoedig en vol medelijden,
           <b>*</b>
           al hebt Gij een afkeer van de slechtheid der mensen.
           <b>8</b>
-          Gij, <span class="smallCaps">Heer</span>, hebt in Uw overstromende goedheid,
+          Gij, <span class="smallCaps">Heer</span>, hebt in Uw overstromende
+          goedheid,
           <b>*</b>
           bekering en vergeving beloofd aan hen, die tegen U zondigen.
           <b>9</b>
@@ -910,7 +922,8 @@
           <b>*</b>
           want mijn zonden zijn talrijker dan het zand der zee.
           <b>12</b>
-          Steeds meer heb ik mijn overtredingen doen toenemen, <span class="smallCaps">Heer</span>;
+          Steeds meer heb ik mijn overtredingen doen toenemen,
+          <span class="smallCaps">Heer</span>;
           <b>*</b>
           steeds hoger is de vloed van mijn zonden gewassen.
           <b>13</b>
@@ -936,7 +949,8 @@
           <b>*</b>
           om Uw goedheid af te smeken.
           <b>17</b>
-          Ik heb gezondigd, <span class="smallCaps">Heer</span>, ja, ik heb gezondigd:
+          Ik heb gezondigd, <span class="smallCaps">Heer</span>, ja, ik heb
+          gezondigd:
           <b>*</b>
           ik erken mijn misdaden.
           <b>18</b>
@@ -984,9 +998,8 @@
           <b>R.</b>
           En schenk ons uw heil.
           <b>R.</b>
-          Moge de <span class="smallCaps">Heer</span> zich over ons ontfermen, onze zonden vergeven en ons geleiden
-          tot
-          het eeuwig leven.
+          Moge de <span class="smallCaps">Heer</span> zich over ons ontfermen,
+          onze zonden vergeven en ons geleiden tot het eeuwig leven.
           <b>R.</b>
           Amen.
           <b>V.</b>
@@ -1055,27 +1068,30 @@
         </p>
 
         <p class="minitial">
-          <span class="smallCaps">Heer</span>, bezoek dit huis en houd ver van ons alle listen van de vijand. Mogen uw
-          engelen hier wonen om ons in vrede te bewaren en laat uw zegen altijd op ons rusten. Door Christus onze
-          Heer.
+          <span class="smallCaps">Heer</span>, bezoek dit huis en houd ver van
+          ons alle listen van de vijand. Mogen uw engelen hier wonen om ons in
+          vrede te bewaren en laat uw zegen altijd op ons rusten. Door Christus
+          onze Heer.
         </p>
 
         <p class="hebrew">
-          <b>שְׁמַע יִשְׂרָאֵל·</b>
+          <span class="rot">שְׁמַע יִשְׂרָאֵל·</span>
           ﬣ אֱלֹהֵינוּ· ﬣ אֶחָד׃
-          <b>בָּרוּךְ</b>
+          <span class="rot">בָּרוּךְ</span>
           שֵׁם כְּבֹוד מַלְכוּתֹו לְעֹולָם וָעֶד׃
-          <b>וְאָהַבְתָּ</b>
-          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
-          <b>בָּרוּךְ</b>
-          אַתָּה ﬣ· לַמְּדֵנֶי חֻקֶּיךָ׃
+          <span class="rot">וְאָהַבְתָּ</span>
+          אֵת ﬣ אֱלֹהֶיךָ· בְּכׇל־​לְבָבְךָ וּבְכׇל־​נַפְשְׁךָ
+          וּבְכׇל־​מְאֹדֶךָ׃ וְאָהַבְתָּ לְרֵעֲךָ כָּמֹוךָ׃
+          <span class="rot">בָּרוּךְ</span>
+          אַתָּה ﬣ· לַמְּדֵנִי חֻקֶּיךָ׃
         </p>
 
         <div id="middagLezing"></div>
 
         <p>
           <b>R.</b>
-          In uw handen, <span class="smallCaps">Heer</span>, beveel ik mijn geest.
+          In uw handen, <span class="smallCaps">Heer</span>, beveel ik mijn
+          geest.
           <b>V.</b>
           Gij zijt mijn Verlosser, getrouwe God.
         </p>
@@ -1084,7 +1100,8 @@
           <b>Ant.</b>
           Bewaar ons, <span class="smallCaps">Heer</span>, als wij waken;
           <b>*</b>
-          bescherm ons, als wij slapen; dan zullen wij waken met Christus en rusten in vrede.
+          bescherm ons, als wij slapen; dan zullen wij waken met Christus en
+          rusten in vrede.
           <b>(Pt.</b>
           Alleluia.<b>)</b>
         </p>
@@ -1106,15 +1123,17 @@
 
         <p>
           <b>Ant.</b>
-          Bewaar ons, <span class="smallCaps">Heer</span>, als wij waken; bescherm ons, als wij slapen; dan zullen wij
-          waken met Christus en rusten in vrede.
+          Bewaar ons, <span class="smallCaps">Heer</span>, als wij waken;
+          bescherm ons, als wij slapen; dan zullen wij waken met Christus en
+          rusten in vrede.
           <b>(Pt.</b>
           Alleluia.<b>)</b>
         </p>
 
         <p>
           <b>V.</b>
-          Bewaar ons, <span class="smallCaps">Heer</span>, als de appel van uw oog.
+          Bewaar ons, <span class="smallCaps">Heer</span>, als de appel van uw
+          oog.
           <b>R.</b>
           Bescherm ons in de schaduw van uw vleugelen.
           <b>V.</b>
@@ -1126,16 +1145,14 @@
         </p>
 
         <p class="syriac">
-          <b>ܐܰܒ݂ܽܘܼܢ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ܁</b>
-          ܢܶܬْ݂ܩܰܕ݁ܰܫ ܫ̰ܡܳܟ݂.
-          ܘ̰ܬ݂ܺܐܬ݂ܶܐ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܟ݂.
-          ܘ̰ܢܶܗْ̈ܘܽܘܼܢ ܨܶܒْ݂ܝܳܢܰܝْ̈ܟ݁܁ ܒ݁ܰܐ̰ܪْܥܳܐ ܐܰܝ̰ܟ݂ ܕ̰݁ܒ݂ܰܫْ̈ܡܰܝܳܐ.
-          ܘ̰ܗܰܒ݂ ܠܰܢ ܠܰܚْܡܰܢ ܐܰܡܺܝܼܢܳܐ ܕ݂̰ܝܰܘْܡܳܐ.
-          ܘܰܫْܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘْܒ݁ܰܝْ̈ܢ܁ ܐܰܝ̰ܟ݂ ܕ݁ܶܐ̰ܢܰܚْܢܰܢ ܢܶܫْܒ݁ܽܘܼܩ ܠ̰ܚܰܝܳܒ݂ܰܝْ̈ܢ.
-          ܘ̰ܠܳܐ ܬ݂ܰܝْܬ݁ܶܝܿܢ ܠ̰ܢܶܤْܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܼܫܳܐ܀
-          <b>ܡܶܛܽܠ</b>
-          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠْܟ݁ܽܘܼܬ݂ܳܐ ܘ̰ܬ݂ܶܫْܒ݁ܽܘܼܚْܬ݁ܳܐ ܠ̰ܥܳܠْܡܺܝܼܢ܀
-          <b>ܐܰܡܺܝܼܢ܀</b>
+          <span class="rot">ܐܰܒ݂ܽܘܼܢ ܕ݁ܒ݂ܰܫ̈ܡܰܝܳܐ܁</span>
+          ܢܶܬ݂ܩܰܕ݁ܰܫ ܫܡܳܟ݂. ܘܬ݂ܺܐܬ݂ܶܐ ܡܰܠܟ݁ܽܘܼܬ݂ܳܟ݂. ܘܢܶܗ̈ܘܽܘܼܢ ܨܶܒ݂ܝܳܢܰܝ̈ܟ݁܁
+          ܒ݁ܰܐܪܥܳܐ ܐܰܝܟ݂ ܕ݁ܒ݂ܰܫ̈ܡܰܝܳܐ. ܘܗܰܒ݂ ܠܰܢ ܠܰܚܡܰܢ ܐܰܡܺܝܢܳܐ ܕ݂ܝܰܘܡܳܐ.
+          ܘܰܫܒ݂ܽܘܼܩ ܠܰܢ ܚܰܘܒ݁ܰܝ̈ܢ܁ ܐܰܝܟ݂ ܕ݁ܶܐܢܰܚܢܰܢ ܢܶܫܒ݁ܽܘܼܩ ܠܚܰܝܳܒ݂ܰܝ̈ܢ. ܘܠܳܐ
+          ܬ݂ܰܝܬ݁ܶܝܿܢ ܠܢܶܤܝܽܘܼܢܳܐ܁ ܐܶܠܳܐ ܦ݂ܰܨܳܢ ܡܶܢ ܒ݁ܺܝܫܳܐ܀
+          <span class="rot">ܡܶܛܽܠ</span>
+          ܕ݁ܕ݁ܺܝܼܠܳܟ݂ ܗ̱ܺܝ ܡܰܠܟ݁ܽܘܼܬ݂ܳܐ ܘܬ݂ܶܫܒ݁ܽܘܼܚܬ݁ܳܐ ܠܥܳܠܰܡ ܥܳܠܡܺܝܼܢ܀
+          <span class="rot">ܐܰܡܺܝܢ܀</span>
         </p>
 
         <p>
@@ -1174,31 +1191,28 @@
           <b>A.</b>
           Amen.
         </p>
-
       </div>
-
     </section>
     <div id="overlay">
       <div id="toLeft" class="overlays"></div>
-      <div id="toRight" class="overlays"></div>
+      <div id="toRight" class="overlays">
+        <button id="toTop">^</button>
+      </div>
     </div>
   </body>
-
 </html>
 <script>
-  const title = document.getElementById('title');
-  const ochtend = document.getElementsByClassName('ochtend');
-  const middag = document.getElementsByClassName('middag');
-  const avond = document.getElementsByClassName('avond');
-  const allAll = [
-    ochtend, middag, avond,
-  ];
-  const uitnodiging = document.getElementById('uitnodiging');
+  const title = document.getElementById("title");
+  const ochtend = document.getElementsByClassName("ochtend");
+  const middag = document.getElementsByClassName("middag");
+  const avond = document.getElementsByClassName("avond");
+  const allAll = [ochtend, middag, avond];
+  const uitnodiging = document.getElementById("uitnodiging");
 
   const clear = () => {
     Array.from(allAll).forEach((el) => {
       Array.from(el).forEach((ell) => {
-        ell.style.display = 'none';
+        ell.style.display = "none";
       });
     });
   };
@@ -1206,7 +1220,7 @@
   const show = (className) => {
     clear();
     Array.from(className).forEach((el) => {
-      el.style.display = 'block';
+      el.style.display = "block";
     });
   };
 
@@ -1215,42 +1229,52 @@
   const showAvond = () => show(avond);
 
   const showAll = () => {
-    toAll('block');
+    toAll("block");
   };
 
   showOchtend();
 
-  const toLeft = document.getElementById('toLeft');
-  const toRight = document.getElementById('toRight');
+  const toLeft = document.getElementById("toLeft");
+  const toRight = document.getElementById("toRight");
   let width;
   function scrollToX(x) {
-    goal = Math.round(x / width) * width
-    window.scrollTo({ left: goal, behavior: 'smooth' })
+    goal = Math.round(x / width) * width;
+    window.scrollTo({ left: goal, behavior: "smooth" });
   }
   setTimeout(() => {
     width = document.body.clientWidth;
     if (width > 800) {
-      width /= 2
+      width /= 2;
     }
-  }, 500)
-  toLeft.addEventListener('click', (event) => {
-    scrollToX(window.scrollX - width)
-  })
-  toRight.addEventListener('click', (event) => {
-    scrollToX(window.scrollX + width)
-  })
+  }, 500);
+  toLeft.addEventListener("click", (event) => {
+    scrollToX(window.scrollX - width);
+  });
+  toRight.addEventListener("click", (event) => {
+    scrollToX(window.scrollX + width);
+  });
 
-  screen.orientation.addEventListener('change', () => {
+  screen.orientation.addEventListener("change", () => {
     setTimeout(() => {
       width = document.body.clientWidth;
       if (width > 800) {
-        width /= 2
+        width /= 2;
       }
-      scrollToX(window.scrollX)
+      scrollToX(window.scrollX);
     }, 500);
-  })
+  });
 
-  window.addEventListener('touchmove', (event) => { event.preventDefault(); event.stopPropagation(); return false })
+  window.addEventListener("touchmove", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  });
 
-
+  const toTop = document.getElementById("toTop");
+  toTop.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("toTop");
+    scrollToX(0);
+  });
 </script>
