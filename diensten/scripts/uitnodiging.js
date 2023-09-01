@@ -713,11 +713,11 @@ en dat uw kracht uitstraalt over heel de wereld.’
   maar uw woede is bedaard en U hebt mij getroost.
   <b>2</b>
   God is mijn redding! Ik vrees niet, ik ben vol vertrouwen:
-  <b>†</b>
-  de <span class="smallCaps">Heer</span> is mijn sterkte en kracht,
   <b>*</b>
-  Hij is mijn redding geworden.’
+  de <span class="smallCaps">Heer</span> is mijn sterkte en kracht,
   <b>3</b>
+  Hij is mijn redding geworden.’
+  <b>†</b>
   En u zult vol vreugde water putten
   <b>*</b>
   uit de bronnen van de redding.
