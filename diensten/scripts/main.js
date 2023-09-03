@@ -25,17 +25,17 @@ const eigen = getEigen(date);
 tijtelEl.innerHTML = eigen.tijtel ?? "";
 middagTijtelEl.innerHTML = eigen.middagTijtel ?? eigen.tijtel ?? "";
 if (eigen.gebed) {
-  gebedEl.innerHTML = eigen.gebed;
-  middagGebedEl.innerHTML = eigen.middagGebed ?? eigen.gebed;
+  gebedEl.innerHTML = `<p><b>Gebed</b> ${eigen.gebed}</p>`;
+  middagGebedEl.innerHTML = `<p><b>Gebed</b> ${eigen.middagGebed ?? eigen.gebed}</p>`;
 }
 if (eigen.gewag) {
-  gebedEl.innerHTML += eigen.gewag;
+  gebedEl.innerHTML += `<p>${eigen.gewag}</p>`;
 }
 if (eigen.benedictus) {
-  benedictus1El.innerHTML = eigen.benedictus;
-  benedictus2El.innerHTML = eigen.benedictus;
+  benedictus1El.innerHTML = `<p><b>Ant. Ben.</b> ${eigen.benedictus}</p>`;
+  benedictus2El.innerHTML = `<p><b>Ant. Ben.</b> ${eigen.benedictus}</p>`;
 }
 if (eigen.magnificat) {
-  magnificat1El.innerHTML = eigen.magnificat;
-  magnificat2El.innerHTML = eigen.magnificat;
+  magnificat1El.innerHTML = `<p><b>Ant. Mag.</b> ${eigen.magnificat}</p>`;
+  magnificat2El.innerHTML = `<p><b>Ant. Mag.</b> ${eigen.magnificat}</p>`;
 }
